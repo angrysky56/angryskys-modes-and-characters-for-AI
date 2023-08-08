@@ -1,5 +1,6 @@
 # angryskys-modes-and-characters-for-AI
-Prompts for enhanced LLM interaction
+Prompts for enhanced LLM interaction.
+
 I made these modes and characters for Oobabooga's Text Generator Web UI, they are fairly simple but many require 4k context models to run properly.
 
 https://github.com/oobabooga/text-generation-webui
