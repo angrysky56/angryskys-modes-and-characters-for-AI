@@ -13,6 +13,7 @@ I mostly use The Bloke's models-
 
 https://huggingface.co/TheBloke
 ![image](https://github.com/angrysky56/angryskys-modes-and-characters-for-AI/assets/113643118/0550bbe7-1acc-4149-b7aa-a17c011d4eb0)
+
 Love's Transience
 
 We cling so tightly to the things we hold dear
