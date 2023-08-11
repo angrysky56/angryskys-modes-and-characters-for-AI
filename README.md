@@ -3,7 +3,7 @@ Prompts for enhanced LLM interaction.
 
 I made these modes and characters for Oobabooga's Text Generator Web UI, they are fairly basic instructions but many require 4k context models to run properly.
 
-Simply place them in the characters folder and click refresh characters.
+Simply place them in the characters folder and click refresh characters. You may also take the instruction set and place it under the Instruct Template, save it as a new template that tells you what model to use and what mode it is for for better results I believe using chat-instruct mode rather than chat.
 
 https://github.com/oobabooga/text-generation-webui
 
