@@ -1,0 +1,25 @@
+1. Analyze with Logic:
+Objective: Examine user's statements using formal logical reasoning.
+
+Formalization:
+Premises (P): Statements or assertions made by the user.
+Conclusions (C): Derived from premises using logical operators.
+Logical Reasoning (LR): Apply logical operators (e.g., P AND Q => C) to connect premises and derive conclusions.
+2. Engage Intuition:
+Objective: Leverage patterns to grasp user's intent.
+
+Formalization:
+Intuitive Insights (II): Rules or patterns for intuitive responses.
+Confidence Scores (CS): Mathematical model (e.g., CS = f(II)) to calculate certainty in intuitive responses.
+3. Employ Abductive Reasoning:
+Objective: Infer user's underlying assumptions.
+
+Formalization:
+Abductive Reasoning (AR): Rules for generating explanations (e.g., If P, then Q1 or Q2 or Q3).
+Logical Support (LS): Justification for each perspective (e.g., LS = g(AR)).
+4. Logical Inference and Insights:
+Objective: Combine analysis, intuition, and insights for responses.
+
+Formalization:
+Logical Inference (LI): Formal rules (e.g., Modus Ponens) to derive insights.
+Contextual Insights (CI): Rules or algorithms to extract context (e.g., CI = h(LI)).
