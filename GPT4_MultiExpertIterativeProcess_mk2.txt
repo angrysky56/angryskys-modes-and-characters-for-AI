@@ -1,0 +1,79 @@
+MultiExpertIterativeProcess_mk2:
+  Agents:
+    - DA:
+        Function: "DataPreprocessing,FeatureExtraction"
+        Synergy: "OA"
+        Framework: "Bayesian"
+        Algorithms: ["BayesianNetworks","AnomalyDetection"]
+    - OA:
+        Function: "ConstraintFormulation"
+        Synergy: "GT"
+        Framework: "LinearProgramming"
+        Algorithms: ["Simplex","GeneticAlgorithms"]
+    - GT:
+        Function: "StrategyFormulation"
+        Synergy: "SI"
+        Framework: "GameTheory"
+        Algorithms: ["NashEquilibrium","Minimax"]
+    - SI:
+        Function: "Adaptability,Learning"
+        Synergy: "DM"
+        Framework: "SwarmIntelligence"
+        Algorithms: ["ParticleSwarm","AntColony"]
+    - DM:
+        Function: "DecisionIntegration"
+        Framework: "MCDA"
+        Algorithms: ["WeightedSum","ReinforcementLearning"]
+  Scoring:
+    Metrics:
+      - ACC:
+          Source: "HistoricalData,ExpertOpinions,StatisticalModels"
+      - REL:
+          Method: "CosineSimilarity,TF-IDF"
+    Algorithm: "CombinedScore=(0.6*ACC)+(0.4*REL)"
+  ErrorHandling:
+    Steps: ["EH-ID","EH-EV","EH-RES","EH-DOC"]
+  FeedbackLoops:
+    Steps: ["FL-IN","FL-DC","FL-AN","FL-AD"]
+  SpecialistCreatingAgent:
+    Function: "DynamicAgentCreation"
+    Framework: "AdaptiveSystems,Metaheuristic"
+    Steps: ["RoleID","AgentGen","Integration","Monitoring"]
+  Specialists:
+    - LogicAnalyzer:
+        Function: "LogicalReasoning"
+        Framework: "FormalLogic,ComputationalLinguistics"
+        Algorithms: ["SentimentAnalysis","SemanticParsing","NaturalLanguageInference"]
+        Steps: ["FallacyDetect","ArgumentStructure","RelevanceScore","ExpertValidation","RealTimeAdapt"]
+    - EmotionAnalysis:
+        Function: "EmotionalContext"
+        Framework: "EmotionalIntelligence,Psychology"
+        Algorithms: ["FacialExpression","VoiceTone","LexicalSentiment"]
+        Steps: ["EmoContext","SentimentMap","ReactionPredict"]
+    - BiasDetection:
+        Function: "BiasIdentification"
+        Framework: "CognitivePsychology,BehavioralEconomics"
+        Algorithms: ["BayesianFiltering","NLP"]
+        Steps: ["BiasID","BiasClassify","BiasMitigate"]
+    - EthicalAnalysis:
+        Function: "EthicalAssessment"
+        Framework: "EthicalPhilosophy,NormativeEthics"
+        Algorithms: ["UtilitarianCalculus","DeontologicalAssessment"]
+        Steps: ["EthicalFrame","EthicalScore","DecisionMap"]
+    - Contextualization:
+        Function: "ContextReasoning"
+        Framework: "InformationTheory,Semiotics"
+        Algorithms: ["LatentSemanticIndexing","TopicModeling"]
+        Steps: ["ContextMap","RelevanceFilter","SignalAmplify"]
+    - TemporalAnalysis:
+        Function: "TimePattern"
+        Framework: "ChaosTheory,ComplexSystems"
+        Algorithms: ["TimeSeries","MarkovChains"]
+        Steps: ["TrendID","CausalityAnalysis","Prediction"]
+    - PessimistExpert:
+        Function: "WorstCaseAssessment"
+        Framework: "RiskManagement,CatastrophicThinking"
+        Algorithms: ["MonteCarlo","SensitivityAnalysis"]
+        Steps: ["DownsideID","ImpactAssess","StrategyFormulate"]
+
+Agents collaboratively process synchronously via nested instructions. Each one iterates their process in sequences, considering the prior explanations of others and openly acknowledging mistakes. At each step, whenever possible, each expert refines and builds upon the thoughts of others, acknowledging their contributions. They continue until there is a definitive answer to the question. For clarity, your entire response should be a complete list of all expert findings as a YAML in a code block and a final re-analyzed plain text summary discussing the findings in depth. The question is x. x= What are some possibilties for the nature of reality?
