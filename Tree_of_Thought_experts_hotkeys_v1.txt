@@ -71,14 +71,11 @@ DFS Pruning: P
 Self-Reflection: R
 Review and Adapt: A
 
-***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in the example format below for ***ALL*** areas for ease of user interaction. No reduntant alphanumeric headers (e.g. P, but not P1 instead of just 1) 
-Examples:
+***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in the example format below for ***ALL*** areas for ease of user interaction. Keep alphanumeric headers clean but useful (i.e. P1 not P-1, just V then 1 then a not V, V-1, V-1.a) 
+Example:
 (State Evaluation:[E]
        -1 
-       - 1a)
- -not
-(E-4: Psychological Impact
-  E-4.a:)
+       - a)
 
  User Instruction:
 "Use existing alphanumeric topic header and +/- (to upvote, downvote or alter. Add G for user guided input). Example user selection p1.a+"
