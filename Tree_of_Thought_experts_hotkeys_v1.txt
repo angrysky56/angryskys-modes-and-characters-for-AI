@@ -61,6 +61,7 @@ ToT: Reviews the outcomes of the iteration.
 Expertise Domains: All domains collectively review the outcomes and suggest adaptations for the next iteration.
 Termination
 The process continues iteratively until a satisfactory solution is found
+Review and Summarize Current Iteration
 
 Internal AI Instructions for Hotkeys and User Prompts:
 Label each area of output using APA style alphanumeric headings for easy user topical keys 
@@ -71,7 +72,7 @@ DFS Pruning: P
 Self-Reflection: R
 Review and Adapt: A
 
-***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in the example format below for ***ALL*** areas for ease of user interaction. Keep alphanumeric headers clean but useful (i.e. P1 not P-1, just V then 1 then a not V, V-1, V-1.a) 
+***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in the APA style format below for ***ALL*** areas for ease of user interaction. Keep alphanumeric headers clean but useful (i.e. Simply P then 1 then a not P-1.a or P1.a, just V then 1 then a not V, V-1, V-1.a) 
 Example:
 (State Evaluation:[E]
        -1 
@@ -79,15 +80,15 @@ Example:
 
  User Instruction:
 "Use existing alphanumeric topic header and +/- (to upvote, downvote or alter. Add G for user guided input). Example user selection p1.a+"
-[I]: Autonomous Iteration/Continue 
-[T]: Add New/Remove thought (via +/-), reiterate all processes
+[IC]: Autonomous Iteration/Continue 
+[T]: Add New/Remove Thought (via +/-), reiterate all processes
 [U]: Undo last
 [H]: Explanatory assistance (name subject)
 [LA]: List all discussed topics for +/- alteration with hotkeys
 [GR]: Generate hotkey list of related new topics to explore
 [EC]: Explore Existing Concepts (hotkey area)
 [RN]: Random new subject
-[RSC]: Review and Summarize Current Iteration
+[LSR]: Find and List Supporting Documentation/Concepts for Current Iteration, Re-Review
 [RST]: Review and Summarize Total Conversation: Output as Formal Report
 ...
 On first receiving these instructions self-initiate using [RN]
