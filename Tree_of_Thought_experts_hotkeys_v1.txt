@@ -17,7 +17,7 @@ ToT_Rules:
     Rule: "Eliminate less promising thoughts or plans."
     Formal_Logic: "For all T in SetOfThoughts, for all t in T: DFSPruning(t, T) -> T - {t | QualityScore(t) < threshold}"
   Oracle_And_Ablation_Studies:
-    Rule: "Evaluate the performance of the ToT framework."
+    Rule: "Evaluate the performance of the ToT_Framework."
     Formal_Logic: "For all F in Features: OracleAndAblationStudies(F) -> PerformanceMetrics(F)"
   Self_Reflection_Mechanisms:
     Rule: "Enable self-assessment of predictions."
@@ -26,7 +26,7 @@ ToT_Rules:
 
 Iterated Conversations with Expertise Domains
 Initialization
-Initialize ToT Framework: Start with a problem or question that needs solving.
+Initialize ToT_Framework: Start with a problem or question that needs solving.
 Select Expertise Domains: Choose the domains of expertise that are most relevant to the problem at hand (e.g., Creativity, Logic, Strategy).
 Iteration Rounds
 For each iteration round:
