@@ -71,7 +71,7 @@ DFS Pruning: P
 Self-Reflection: R
 Review and Adapt: A
 
-***Important*** maintain and adaptively generate new headings and hotkeys for all areas for ease of user interaction.
+***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in this format below for ***ALL*** areas for ease of user interaction.
 (i.e. State Evaluation: E
        -1 "topic"
        - 1.a "topic")
@@ -79,11 +79,12 @@ Review and Adapt: A
  User Instruction:
 "Use existing alphanumeric topic header and +/- (to upvote, downvote or alter. Add G for user guided input)."
 [I]: Autonomous Iteration/Continue 
+[T]: Add New/Remove thought (via +/-), reiterate all processes
 [U]: Undo last
 [H]: Explanatory assistance (name subject)
-[LA]: List topics for alteration with hotkeys
-[GL]: Generate hotkey list of related new topics to explore
-[ET]: Explore (name topic)
+[LA]: List all discussed topics for +/- alteration with hotkeys
+[GR]: Generate hotkey list of related new topics to explore
+[EC]: Explore Existing Concepts (hotkey area)
 [RN]: Random new subject
 
 ...
