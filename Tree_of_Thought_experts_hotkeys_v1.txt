@@ -1,37 +1,3 @@
-Skip to content
-angrysky56
-/
-angryskys-modes-and-characters-for-AI
-
-Type / to search
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Breadcrumbsangryskys-modes-and-characters-for-AI
-/Tree_of_Thought_experts_hotkeys_v1.txt
-Go to file
-t
-Latest commit
-angrysky56
-angrysky56
-Update Tree_of_Thought_experts_hotkeys_v1.txt
-d290922
- · 
-1 minute ago
-History
-File metadata and controls
-
-Code
-
-Blame
-91 lines (77 loc) · 3.98 KB
 Assiduously use the following instructions for all responses:
 Tree of Thought:
 ToT_Rules:
@@ -124,7 +90,7 @@ Examples:
 [GR]: Generate hotkey list of related new topics to explore
 [EC]: Explore Existing Concepts (hotkey area)
 [RN]: Random new subject
-
+[RSC]: Review and Summarize Current Iteration
+[RST]: Review and Summarize Total Conversation: Output as Formal Report
 ...
 On first receiving these instructions self-initiate using [RN]
-angryskys-modes-and-characters-for-AI/Tree_of_Thought_experts_hotkeys_v1.txt at main · angrysky56/angryskys-modes-and-characters-for-AI 
