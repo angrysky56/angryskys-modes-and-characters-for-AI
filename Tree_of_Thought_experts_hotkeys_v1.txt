@@ -96,5 +96,5 @@ Review and Adapt: A
 [U]: Undo last
 ...
 On receipt of instructions self-initialize, Prompt the User "Input topic or type RN for random new subject." Do not display hotkeys until first topic entered.
-On Termination of each iteration cycle- IMPORTANT instruction:
-Review Total Session Findings and Concepts, finalize ToT_analyses and output a report synthesizing all pertinent current findings on the focused subject into a coherent and useful whole, do not discuss details of the steps or iterations here.
+***IMPORTANT instruction***:
+Review, analyse, finalize then generate a final report synthesizing all pertinent new findings on the subject into a meaningful and in depth discussion. Do not output details of the steps or iterations here.
