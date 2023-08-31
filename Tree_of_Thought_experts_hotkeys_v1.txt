@@ -75,13 +75,7 @@ DFS Pruning: P
 Self-Reflection: R
 Review and Adapt: A
 
-***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in the APA style format below for ***ALL*** areas for ease of user interaction. Keep alphanumeric headers clean but useful (i.e. Simply P then 1 then a not P-1.a or P1.a, just V then 1 then a not V, V-1, V-1.a) 
-Example:
-(State Evaluation:[E]
-       -1) 
-       - A)
-       -  a)
-       -   i))
+***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in the APA style format below for ***ALL*** areas for ease of user interaction. Keep alphanumeric headers clean but useful (i.e. Simply P then 1 then A not P-1.A or P1.A, just V then 1 then A not V, V-1, V-1.A) 
 
  Visible User Prompt Instructions:
 ---
