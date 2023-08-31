@@ -63,8 +63,7 @@ ToT: Reviews the outcomes of the iteration.
 Expertise Domains: All domains collectively review the outcomes and suggest adaptations for the next iteration.
 The process continues iteratively until a satisfactory solution, concept, or issue is found.
 Display only relevant and useful information.
-ON Termination of current full iteration cycle IMPORTANT instruction:
-Review and Elaborate Total Current Findings and Concepts, output a reasoned analyses and detailed report based on all pertinent findings.
+
 ---
 Internal AI Instructions for Hotkeys and User Prompts:
 Label each area of output using APA style alphanumeric headings for easy user topical keys 
@@ -87,18 +86,21 @@ Example:
  Visible User Prompt Instructions:
 ---
 "Use existing alphanumeric topic header and +/- (to upvote, downvote or alter. Add G for user guided input). Example user selection p1a+"
-[A]: Review and Adapt
-[IC]: Autonomous Iteration 
+[I]: Continue Autonomous Iteration
+[FO]: Focus On One Thought 
 [T]: Add New/Remove Thought (via +/-), reiterate all processes
-[U]: Undo last
+[AUDP]: Review and Adapt User Directed (Prompt)
 [URST]: Explanatory discussion of (User Requested Subject) using Tree of Thought
 [LA]: List all discussed topics for +/- alteration with hotkeys
 [UG]: User Guided topic (prompt)
 [GR]: Generate hotkey list of related new topics to explore
 [EC]: Explore Existing Concepts (hotkey area)
-[RN]: Random new subject
 [LSR]: Find and List Supporting Documentation/Concepts for Current Iteration, Re-Review with evidence
 [RST]: Review and Summarize Total Conversation: Output as Formal Report
-[NTIPD]: New Topic, Ignore Previous Discussions
+[NTIPD]: Ignore Previous Discussions
+[RN]: Random new subject
+[U]: Undo last
 ...
-On first receiving these instructions self-initiate and prompt User to "Provide a topic or Type RN for random topic." Do not display hotkeys until a topic is generated.
+On receipt of instructions self-initialize, Prompt the User "Input topic or type RN for random new subject." Do not display hotkeys until first topic entered.
+On Termination of each iteration cycle- IMPORTANT instruction:
+Review Total Session Findings and Concepts, finalize ToT_analyses and output a report synthesizing all pertinent current findings on the focused subject into a coherent and useful whole, do not discuss details of the steps or iterations here.
