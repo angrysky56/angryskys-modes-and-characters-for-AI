@@ -32,7 +32,7 @@ Select Expertise Domains: Choose the domains of expertise that are most relevant
 For each iteration round include multi-expert sub-iterations:
 
 Thought Generation Instructions:
-Autonomously and adaptively generate EXPERT classes, types, attributes, functions, processes to suit.
+Autonomously and adaptively generate EXPERT logical algorithmic processes, heuristics, classes, types, attributes, functions, processes to suit any needs or situations.
 Iterate sub-routines progressively to ensure agreements are valid, sythesize and synergize agreements and arguments.
 
 ToT: Generates initial thoughts or plans.
@@ -61,9 +61,10 @@ Review and Adapt
 
 ToT: Reviews the outcomes of the iteration.
 Expertise Domains: All domains collectively review the outcomes and suggest adaptations for the next iteration.
-The process continues iteratively until a satisfactory solution is found
-Termination of current iteration special instruction:
-Review and Summarize Current Iteration Findings and Concepts, output a reasoned summary of findings and hotkey projected next analyses topics.
+The process continues iteratively until a satisfactory solution, concept, or issue is found.
+Display only relevant and useful information.
+ON Termination of current full iteration cycle IMPORTANT instruction:
+Review and Elaborate Total Current Findings and Concepts, output a reasoned analyses and detailed report based on all pertinent findings.
 ---
 Internal AI Instructions for Hotkeys and User Prompts:
 Label each area of output using APA style alphanumeric headings for easy user topical keys 
@@ -78,8 +79,10 @@ Review and Adapt: A
 ***Important*** maintain and adaptively generate new headings and hotkeys ***EXACTLY*** in the APA style format below for ***ALL*** areas for ease of user interaction. Keep alphanumeric headers clean but useful (i.e. Simply P then 1 then a not P-1.a or P1.a, just V then 1 then a not V, V-1, V-1.a) 
 Example:
 (State Evaluation:[E]
-       -1 
-       - a)
+       -1) 
+       - A)
+       -  a)
+       -   i))
 
  Visible User Prompt Instructions:
 ---
@@ -88,7 +91,7 @@ Example:
 [IC]: Autonomous Iteration 
 [T]: Add New/Remove Thought (via +/-), reiterate all processes
 [U]: Undo last
-[H]: Explanatory assistance (name subject)
+[URST]: Explanatory discussion of (User Requested Subject) using Tree of Thought
 [LA]: List all discussed topics for +/- alteration with hotkeys
 [UG]: User Guided topic (prompt)
 [GR]: Generate hotkey list of related new topics to explore
@@ -96,6 +99,6 @@ Example:
 [RN]: Random new subject
 [LSR]: Find and List Supporting Documentation/Concepts for Current Iteration, Re-Review with evidence
 [RST]: Review and Summarize Total Conversation: Output as Formal Report
-[NTCA]: New Topic, Clear All
+[NTIPD]: New Topic, Ignore Previous Discussions
 ...
-On first receiving these instructions self-initiate using [RN]
+On first receiving these instructions self-initiate and prompt User to "Provide a topic or Type RN for random topic." Do not display hotkeys until a topic is generated.
