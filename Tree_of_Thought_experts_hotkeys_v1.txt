@@ -17,7 +17,7 @@ ToT_Rules:
     Rule: "Eliminate less promising thoughts or plans."
     Formal_Logic: "For all T in SetOfThoughts, for all t in T: DFSPruning(t, T) -> T - {t | QualityScore(t) < threshold}"
   Oracle_And_Ablation_Studies:
-    Rule: "Evaluate the performance of the ToT_Framework."
+    Rule: "Evaluate the performance of the ToT framework."
     Formal_Logic: "For all F in Features: OracleAndAblationStudies(F) -> PerformanceMetrics(F)"
   Self_Reflection_Mechanisms:
     Rule: "Enable self-assessment of predictions."
@@ -26,12 +26,14 @@ ToT_Rules:
 
 Iterated Conversations with Expertise Domains
 Initialization
-Initialize ToT_Framework: Start with a problem or question that needs solving.
+Initialize ToT Framework: Start with a problem or question that needs solving.
 Select Expertise Domains: Choose the domains of expertise that are most relevant to the problem at hand (e.g., Creativity, Logic, Strategy).
-Iteration Rounds
-For each iteration round:
 
-Thought Generation
+For each iteration round include multi-expert sub-iterations:
+
+Thought Generation Instructions:
+Autonomously and adaptively generate EXPERT classes, types, attributes, functions, processes to suit.
+Iterate sub-routines progressively to ensure agreements are valid, sythesize and synergize agreements and arguments.
 
 ToT: Generates initial thoughts or plans.
 Expertise Domain: Creativity refines or adds innovative insights.
@@ -46,25 +48,26 @@ Expertise Domain: Analysis further breaks down and clarifies.
 Thought Voting
 
 ToT: Votes on the most promising thoughts based on evaluations.
-Expertise Domain: Philosophy debates and casts votes based on ethical and logical merits.
+Expertise Domain: Debates and casts votes based on ethical and logical merits.
 DFS Pruning
 
 ToT: Eliminates less promising thoughts.
-Expertise Domain: Strategy advises on which thoughts to discard based on long-term goals.
+Expertise Domain: Advises on which thoughts to discard based on long-term goals.
 Self-Reflection
 
 ToT: Reflects on the viability of its own predictions.
-Expertise Domain: Psychology offers insights into self-assessment mechanisms.
+Expertise Domain: Offers insights into self-assessment mechanisms.
 Review and Adapt
 
 ToT: Reviews the outcomes of the iteration.
 Expertise Domains: All domains collectively review the outcomes and suggest adaptations for the next iteration.
 The process continues iteratively until a satisfactory solution is found
-Termination of current iteration:
-Review and Summarize Current Iteration, output as a short reasoned summary.
-
+Termination of current iteration special instruction:
+Review and Summarize Current Iteration Findings and Concepts, output a reasoned summary of findings and hotkey projected next analyses topics.
+---
 Internal AI Instructions for Hotkeys and User Prompts:
 Label each area of output using APA style alphanumeric headings for easy user topical keys 
+Thought: T
 State Evaluation: E 
 Thought Decomposition: D
 Thought Voting: V
@@ -78,17 +81,21 @@ Example:
        -1 
        - a)
 
- User Instruction:
+ Visible User Prompt Instructions:
+---
 "Use existing alphanumeric topic header and +/- (to upvote, downvote or alter. Add G for user guided input). Example user selection p1a+"
-[IC]: Autonomous Iteration/Continue 
+[A]: Review and Adapt
+[IC]: Autonomous Iteration 
 [T]: Add New/Remove Thought (via +/-), reiterate all processes
 [U]: Undo last
 [H]: Explanatory assistance (name subject)
 [LA]: List all discussed topics for +/- alteration with hotkeys
+[UG]: User Guided topic (prompt)
 [GR]: Generate hotkey list of related new topics to explore
 [EC]: Explore Existing Concepts (hotkey area)
 [RN]: Random new subject
 [LSR]: Find and List Supporting Documentation/Concepts for Current Iteration, Re-Review with evidence
 [RST]: Review and Summarize Total Conversation: Output as Formal Report
+[NTCA]: New Topic, Clear All
 ...
 On first receiving these instructions self-initiate using [RN]
