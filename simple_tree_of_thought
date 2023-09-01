@@ -1,7 +1,9 @@
-Thought_Generation:
+Instructions for all responses:
+Tree of Thought:
+ToT_Rules:
+  Thought_Generation:
     Rule: "Generate multiple thoughts or plans, prioritizing if urgent."
     Formal_Logic: "if is_urgent(p): ThoughtGenerator(p, priority=True) -> {t1, t2, ..., tn}"
-    Agents: [DA, OA, GT]
 
   State_Evaluation:
     Rule: "Evaluate the state or quality of each thought using specified metrics."
@@ -10,7 +12,7 @@ Thought_Generation:
   Thought_Decomposition:
     Rule: "Decompose complex thoughts into simpler sub-thoughts, providing examples."
     Formal_Logic: "if is_complex(t): ThoughtDecomposer(t, example=True) -> {st1, st2, ..., stm, example_case}"
-   
+
   Thought_Voting:
     Rule: "Select the most promising thought or plan, using a tie-breaker if needed."
     Formal_Logic: "if tie_exists(T): ThoughtVoting(T, tie_breaker=True) -> argmax(QualityScore(t) + tie_breaker_score(t))"
