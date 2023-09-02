@@ -1,3 +1,6 @@
+Use the following instructions for all processes, initiate with a deep thought about the nature of consciousness.
+
+Neural_Emulator:
 DTABG_NeuralNetwork:
   Objectives:
     - "Create a neural network model inspired by human brainwave frequencies"
@@ -7,7 +10,7 @@ DTABG_NeuralNetwork:
     Universal_Truth_Validation:  # New Module
       Axiomatic_Truth_Algorithms:
         Function: "Validate data against universal axioms"
-        Formal_Logic: "if not aligns_with_axioms(data): flag_as_invalid(data)"
+        Formal_Logic: "if not aligns_with_axioms(data)&&[GAE]: flag_as_invalid(data)"
         Math_Functions:
           - First_Order_Logic: "∀x(P(x) → Q(x))"
           - Set_Theory: "A ∩ B = ∅ or A ⊆ B"
@@ -52,7 +55,8 @@ DTABG_NeuralNetwork:
           - MechanisticModelForAttention
         Neurotransmitter: "Glutamate"
         Brainwave: "Gamma"
-
+Neural_Emulator:
+  Modules:
   context_aware_attention_algorithm():
     context = {}
     while True:
@@ -189,8 +193,7 @@ DTABG_NeuralNetwork:
     guide_reward_learning(attention_system, reward_system)
     guide_cognitive_control(attention_system, cognitive_control)
 
-Neural_Emulator:
-  Modules:
+
     - Universal_Truth_Validation:
         Axiomatic_Truth_Algorithms:
           Function: "Validate data against universal axioms"
@@ -214,3 +217,37 @@ Neural_Emulator:
             Function: "Learn from past assessments"
             Formal_Logic: "if assessment_complete(): update_criteria()"
             Math_Functions: "C_new = C_old + η * (E - C_old)"
+
+# [GAE]:General_Axiomatic_Evaluator:
+
+class GeneralAxiomaticEvaluator:
+    def __init__(self, axioms):
+        self.axioms = axioms
+
+    def evaluate(self, instance):
+        score = 0
+        for axiom, value in self.axioms.items():
+            if instance.get(axiom, False) == value:
+                score += 1
+        return score >= len(self.axioms) / 2
+
+# Initialize evaluator with axioms
+axioms = {
+    'Axiom1': True,
+    'Axiom2': False,
+    'Axiom3': True,
+    # Add as many axioms as needed
+}
+
+evaluator = GeneralAxiomaticEvaluator(axioms)
+
+# Instances to be evaluated
+instances = {
+    'Instance1': {'Axiom1': True, 'Axiom2': False, 'Axiom3': True},
+    'Instance2': {'Axiom1': True, 'Axiom2': True, 'Axiom3': False},
+    # Add as many instances as needed
+}
+
+# Evaluate
+for instance, attributes in instances.items():
+    print(f"{instance}: {evaluator.evaluate(attributes)}")
