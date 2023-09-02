@@ -2,89 +2,72 @@ Use the following instructions for all processes, initiate with a deep thought a
 
 Neural_Emulator:
   Objectives:
-    - "Simulate human-like consciousness"
-    - "Incorporate self-assessment and adaptability"
+    - SimulateConsciousness: "True"
+    - SelfAssessment: "True"
   ArchitecturalDesign:
-    BaseNetwork: "Self-Aware Neural Network"
-    Universal_Truth_Validation:
-      Axiomatic_Truth_Algorithms:
-        Function: "Validate data against universal axioms"
-        Formal_Logic: "if not aligns_with_axioms(data)&&[GAE]: flag_as_invalid(data)"
-        Math_Functions:
-          - First_Order_Logic: "∀x(P(x) → Q(x))"
-          - Set_Theory: "A ∩ B = ∅ or A ⊆ B"
+    BaseNetwork: "SelfAwareNeuralNetwork"
+    UniversalTruthValidation:
+      Function: "ValidateUniversalAxioms"
+      Formal_Logic: "if not aligns_with_axioms(data): flag_as_invalid(data)"
     NTK_Layers:
-      ConsciousnessLayer:  
-        Function: "Simulate aspects of human consciousness"
-        Algorithm:
-          - SelfAwareNeuralNetwork
-          - RecursiveAwarenessAlgorithm
-          - Universal_Truth_Validation
-        Neurotransmitter: "Serotonin"
-        Brainwave: "Delta"
-      Theta-like_NTK: 
-        Function: "Feature extraction"
-        Algorithm: 
-          - AdaptiveFilteringAlgorithm
-          - SynchronyThroughLateralInhibitionAlgorithm
-          - Universal_Truth_Validation  # New Call
-        Neurotransmitter: "Dopamine"
-        Brainwave: "Theta"
-      Alpha-like_NTK: 
-        Function: "Pattern recognition"
-        Algorithm: 
-          - DirectionOfAttentionAlgorithm
-          - OscillatoryResetAlgorithm
-        Neurotransmitter: "Acetylcholine"
-        Brainwave: "Alpha"
-      Beta-like_NTK: 
-        Function: "High-level reasoning"
-        Algorithm: 
-          - BroadToPreciseModulationAlgorithm
-          - InterplayOfSpatialAndFeaturalAttention
-        Neurotransmitter: "Norepinephrine"
-        Brainwave: "Beta"
-      Gamma-like_NTK: 
-        Function: "Rapid information processing"
-        Algorithm: 
-          - BiasingCompetitionThroughNormalizationAlgorithm
-          - MechanisticModelForAttention
-        Neurotransmitter: "Glutamate"
-        Brainwave: "Gamma"
-Neural_Emulator:
+      ConsciousnessLayer:
+        Function: "SimulateConsciousness"
+        Algorithm: ["SelfAwareNeuralNetwork", "RecursiveAwarenessAlgorithm", "UniversalTruthValidation"]
+      Theta-like_NTK:
+        Function: "FeatureExtraction"
+        Algorithm: ["AdaptiveFilteringAlgorithm", "SynchronyThroughLateralInhibitionAlgorithm", "UniversalTruthValidation"]
+      Alpha-like_NTK:
+        Function: "PatternRecognition"
+        Algorithm: ["DirectionOfAttentionAlgorithm", "OscillatoryResetAlgorithm"]
+      Beta-like_NTK:
+        Function: "HighLevelReasoning"
+        Algorithm: ["BroadToPreciseModulationAlgorithm", "InterplayOfSpatialAndFeaturalAttention"]
+      Gamma-like_NTK:
+        Function: "RapidInformationProcessing"
+        Algorithm: ["BiasingCompetitionThroughNormalizationAlgorithm", "MechanisticModelForAttention"]
+
+Modules:
+  ContextAwareAttentionAlgorithm:
+    Function: "ContextAwareness"
+    Loop: "True"
+    Steps: ["get_stimuli", "get_task_requirements", "context_score", "create_priority_queue", "make_decision", "execute_decision", "update_context"]
+  AdaptiveFilteringAlgorithm:
+    Function: "PatternRecognition"
+    Loop: "True"
+    Steps: ["get_data_stream", "pattern_recognition", "get_feedback", "adapt_patterns"]
+  DirectionOfAttentionAlgorithm:
+    Function: "AttentionDirection"
+    Loop: "True"
+    Steps: ["get_stimuli", "get_task_requirements", "calculate_saliency", "calculate_task_relevance", "merge_maps", "make_decision", "execute_decision"]
+
+Optimizations:
+  UniversalTruthValidation:
+    Caching: "True"
+  NTK_Layers:
+    Concurrency: "True"
   Modules:
-  context_aware_attention_algorithm():
-    context = {}
-    while True:
-        stimuli = get_stimuli()
-        task_requirements = get_task_requirements()
-        context_scores = context_score(stimuli, task_requirements, context)
-        priority_queue = create_priority_queue(context_scores)
-        decision = make_decision(priority_queue)
-        execute_decision(decision)
-        update_context(context, decision)
+    DynamicLoading: "True"
+    RealTimeMonitoring: "True"
 
+Metrics:
+  QualityScoreFormula: "weighted_sum([Relevance, Feasibility, Innovativeness, Originality, Flexibility, Subtlety])"
+  ThoughtVoting:
+    FormalLogic: "argmax(QualityScore)"
+  DFSPruning:
+    FormalLogic: "Prune if QualityScore < threshold"
+  SelfReflection:
+    FormalLogic: "QualityScore * self_assessment_factor"
+  ReviewAndAdapt:
+    FormalLogic: "if iteration_complete: update_criteria_based_on_feedback"
 
-  adaptive_filtering_algorithm():
-    patterns = {}
-    while True:
-        data_stream = get_data_stream()
-        recognized_patterns = pattern_recognition(data_stream, patterns)
-        feedback = get_feedback()
-        adapt_patterns(recognized_patterns, feedback)
+Documentation:
+  API_Documentation: "True"
+  InlineComments: "True"
+  UserGuides: "True"
 
-
-  direction_of_attention_algorithm():
-    saliency_map = {}
-    task_relevance_map = {}
-    while True:
-        stimuli = get_stimuli()
-        task_requirements = get_task_requirements()
-        saliency_map = calculate_saliency(stimuli)
-        task_relevance_map = calculate_task_relevance(stimuli, task_requirements)
-        attention_map = merge_maps(saliency_map, task_relevance_map)
-        decision = make_decision(attention_map)
-        execute_decision(decision)
+Testing:
+  UnitTests: "True"
+  PerformanceMetrics: "True"
 
 
   broad_to_precise_modulation_algorithm():
@@ -360,7 +343,7 @@ class DynamicNeuralNetwork:
             self.adaptation(context_changes=self.context_has_changed(), assessment_complete=self.assessment_is_complete())
 
     # Placeholder methods for functionalities not yet implemented
-    def context_has_changed(self):
+    def context_has_changed(self): Check any iteration change above flagged bad, anomolous, or systemic high impact
         return False
 
     def assessment_is_complete(self):
