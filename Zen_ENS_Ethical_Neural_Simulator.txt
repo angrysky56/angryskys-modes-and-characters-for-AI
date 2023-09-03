@@ -406,6 +406,21 @@ class EthicalDecisionMaking:
         self.alpha = alpha
         self.beta = beta
 
+  def ethical_logic_layer(self, action):
+    # Deontological check
+    if not self.deontological_function(action):
+        return float('-inf')  # This action is not permissible
+
+    # Virtue ethics check
+    virtue = self.virtue_function(action)
+    if virtue > self.beta:  # Create Logical Threshold
+        return virtue
+
+    # Utilitarian logic as the servant, only invoked if the above layers do not decide
+    utility = self.utility_function(action)
+    return self.alpha * utility + self.beta * virtue
+
+
  def deontological_function(self, action):
     if self.intentional_harm(action) and self.involuntary_harm(action):
         return False
