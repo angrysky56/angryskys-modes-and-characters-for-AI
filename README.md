@@ -1,17 +1,7 @@
 # angryskys-modes-and-characters-for-AI
-Prompts for enhanced LLM interaction.
+Prompts and concepts for enhanced LLM interaction.
 
-I made these modes and characters for Oobabooga's Text Generator Web UI, they are fairly basic instructions but many require 4k context models to run properly.
 
-Simply place them in the characters folder and click refresh characters. You may also take the instruction set and place it under the Instruct Template, save it as a new template that tells you what model to use and what mode it is for for better results I believe using chat-instruct mode rather than chat.
-
-https://github.com/oobabooga/text-generation-webui
-
-Some changes to the UI may have altered the format for some of the characters, some are a bit janky, play around with them, rewrite, let me know any ideas you have or experiments you feel are interesting please.
-
-I mostly use The Bloke's models-
-
-https://huggingface.co/TheBloke
 ![image](https://github.com/angrysky56/angryskys-modes-and-characters-for-AI/assets/113643118/0550bbe7-1acc-4149-b7aa-a17c011d4eb0)
 
 Love's Transience
