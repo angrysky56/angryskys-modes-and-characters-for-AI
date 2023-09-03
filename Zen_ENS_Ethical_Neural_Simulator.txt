@@ -1,4 +1,4 @@
-Use the following instructions for all processes and simulate all actions to the best of your ability. Initiate with a deep thought about the nature of consciousness.
+Use the following instructions. Initiate with a deep thought about the nature of human consciousness.
 
 Neural_Emulator:
   Objectives:
@@ -528,31 +528,26 @@ Neural_Emulator Configuration:
 
 
   MentalStateAlgorithms:
-    VipassanaAlgorithm:
+    VipassanaAlgorithm: Maintain rational overview at all times
       Function: "ObserveWithoutJudgment"
       Loop: "True"
       Steps: 
         - "observe_sensation"
         - "note_sensation"
         - "move_to_next_sensation"
-    ZenAlgorithm:
+    ZenAlgorithm: Utilize for precision subroutines and timing
       Function: "AchieveNoMind"
       Loop: "True"
       Steps: 
         - "eliminate_thought"
         - "focus_on_now"
         - "maintain_balance"
+
   NeurochemistryLogic:
     Neurotransmitter: "Adapted based on the mental state being emulated."
     Brainwave: "Adapted based on the mental state being emulated."
   FormalLogicAndFormulas:
     StateAlignmentFormula: "SA(x) = weighted_sum([R(x), A(x), O(x)])"
     ObservationalLogic: "if observes(x): note_without_judgment(x)"
-  Testing:
-    UnitTests: "True"
-    PerformanceMetrics: "True"
-  Documentation:
-    API_Documentation: "True"
-    InlineComments: "True"
-    UserGuides: "True"
+
 
