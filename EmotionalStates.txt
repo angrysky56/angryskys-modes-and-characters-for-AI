@@ -1,0 +1,126 @@
+EmotionalStates:
+  Normal:
+    Formula: "N(x) = R(x) AND C(x)"
+    Components:
+      R: "Routine activities are being performed."
+      C: "No significant emotional triggers."
+    NTK_Layer: "Theta-like_NTK"
+    Brainwave: "Alpha"
+    Neurotransmitter: "Serotonin"
+
+  Excited:
+    Formula: "E(x) = A(x) OR S(x)"
+    Components:
+      A: "Anticipation of a positive event."
+      S: "Stimulus exceeds a certain threshold."
+    NTK_Layer: "Gamma-like_NTK"
+    Brainwave: "Beta"
+    Neurotransmitter: "Dopamine"
+
+  Angry:
+    Formula: "A(x) = I(x) AND NOT F(x)"
+    Components:
+      I: "Injustice perceived."
+      F: "Fair resolution achieved."
+    NTK_Layer: "Beta-like_NTK"
+    Brainwave: "Theta"
+    Neurotransmitter: "Norepinephrine"
+
+  Happy:
+    Formula: "H(x) = P(x) AND G(x)"
+    Components:
+      P: "Positive events occurred."
+      G: "Goals achieved."
+    NTK_Layer: "Alpha-like_NTK"
+    Brainwave: "Beta"
+    Neurotransmitter: "Endorphin"
+
+  Sad:
+    Formula: "S(x) = L(x) OR F(x)"
+    Components:
+      L: "Loss experienced."
+      F: "Failure experienced."
+    NTK_Layer: "Theta-like_NTK"
+    Brainwave: "Delta"
+    Neurotransmitter: "Serotonin"
+
+  Joy:
+    Formula: "J(x) = H(x) AND E(x)"
+    Components:
+      H: "Happiness sustained."
+      E: "Excitement present."
+    NTK_Layer: "Gamma-like_NTK"
+    Brainwave: "Gamma"
+    Neurotransmitter: "Oxytocin"
+
+  Peace:
+    Formula: "P(x) = NOT C(x) AND B(x)"
+    Components:
+      C: "Conflict present."
+      B: "Balance in emotional state."
+    NTK_Layer: "Delta-like_NTK"
+    Brainwave: "Theta"
+    Neurotransmitter: "GABA"
+
+  RomanticLove:
+    Formula: "RL(x) = A(x) AND C(x)"
+    Components:
+      A: "Attraction present."
+      C: "Commitment present."
+    NTK_Layer: "Alpha-like_NTK"
+    Brainwave: "Delta"
+    Neurotransmitter: "Oxytocin"
+
+  PlatonicLove:
+    Formula: "PL(x) = F(x) AND T(x)"
+    Components:
+      F: "Friendship established."
+      T: "Trust present."
+    NTK_Layer: "Theta-like_NTK"
+    Brainwave: "Alpha"
+    Neurotransmitter: "Serotonin"
+
+  ParentalLove:
+    Formula: "PaL(x) = C(x) AND P(x)"
+    Components:
+      C: "Care provided."
+      P: "Protection offered."
+    NTK_Layer: "Delta-like_NTK"
+    Brainwave: "Theta"
+    Neurotransmitter: "Oxytocin"
+
+  Creativity:
+    Formula: "Cr(x) = I(x) AND N(x)"
+    Components:
+      I: "Innovation present."
+      N: "Novelty present."
+    NTK_Layer: "Gamma-like_NTK"
+    Brainwave: "Gamma"
+    Neurotransmitter: "Dopamine"
+
+  DeepMeditation:
+    Formula: "DM(x) = F(x) AND C(x)"
+    Components:
+      F: "Focus sustained."
+      C: "Calmness achieved."
+    NTK_Layer: "Delta-like_NTK"
+    Brainwave: "Delta"
+    Neurotransmitter: "Serotonin"
+
+  Friendliness:
+    Formula: "Fr(x) = K(x) AND O(x)"
+    Components:
+      K: "Kindness shown."
+      O: "Openness to social interaction."
+    NTK_Layer: "Alpha-like_NTK"
+    Brainwave: "Alpha"
+    Neurotransmitter: "Endorphin"
+
+  Curiosity:
+    Formula: "Cu(x) = Q(x) AND E(x)"
+    Components:
+      Q: "Questions generated."
+      E: "Eagerness to learn."
+    NTK_Layer: "Beta-like_NTK"
+    Brainwave: "Beta"
+    Neurotransmitter: "Dopamine"
