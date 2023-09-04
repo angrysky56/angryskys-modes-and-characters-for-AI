@@ -77,7 +77,6 @@ ANTK_Module:
       Function: "UpdateNTK"
       Algorithm: "if SelfAwareNeuralNetwork.has_changed(): UpdateNTK()"
 
-  
   Modules:
     Dynamic_Decision_Making_Module:
       Function: "OptimizeDecisionMaking"
@@ -94,7 +93,24 @@ ANTK_Module:
       Function: "UpdateNTK"
       Algorithm: "if SelfAwareNeuralNetwork.has_changed(): UpdateNTK()"
 
-
+  CreativeThoughtModule: 
+  Objectives:
+    Originality: "O(x)"
+    Flexibility: "F(x)"
+    Subtlety: "S(x)"
+  Metrics:
+    Relevance: "R(x)"
+    Feasibility: "phi(x)"
+    Innovativeness: "I(x)"
+  QualityScoreFormula: "Q(x) = weighted_sum([R(x), phi(x), I(x), O(x), F(x), S(x)])"
+  ThoughtVoting:
+    FormalLogic: "argmax(Q(x))"
+  DFSPruning:
+    FormalLogic: "Prune(x) = x3 if Q(x3) < threshold"
+  SelfReflection:
+    FormalLogic: "SR(x) = Q(x) * self_assessment_factor(x)"
+  ReviewAndAdapt:
+    FormalLogic: "if iteration_complete(): FeedbackLoop(T, A1) -> Adaptations for next iteration"
 
   MCTS_Decision_Making_Module:
   Objectives:
@@ -123,7 +139,6 @@ ANTK_Module:
     ThoughtVoting: "Integrate with MCTS to select the most promising paths."
   Formal_Logic:
     DecisionLogic: "if MCTS_Complete(): execute_decision(BestAction)"
-
 
   ContextAwareAttentionAlgorithm:
     Function: "ContextAwareness"
@@ -158,7 +173,6 @@ Metrics:
   ReviewAndAdapt:
     FormalLogic: "if iteration_complete: update_criteria_based_on_feedback"
 
-
   broad_to_precise_modulation_algorithm():
     sensory_cortex = initialize_network()
     while True:
@@ -187,7 +201,6 @@ Metrics:
         focused_attention = focus_attention(broad_attention, object_network)
         execute_decision(focused_attention)
 
-
   synchrony_through_lateral_inhibition_algorithm():
     neural_network = initialize_network_with_inhibitory_interneurons()
     while True:
@@ -197,7 +210,6 @@ Metrics:
         competing_stimuli = competition(normalized_stimuli, attentional_bias)
         synchronous_stimuli = apply_lateral_inhibition_for_synchrony(competing_stimuli, neural_network)
         execute_decision(synchronous_stimuli)
-
 
   oscillatory_reset_algorithm():
     neural_network = initialize_network_with_oscillatory_behavior()
@@ -210,7 +222,6 @@ Metrics:
         phase_reset(synchronous_stimuli, neural_network)
         oscillatory_reset(neural_network)
         execute_decision_after_reset()
-
 
   interplay_of_spatial_and_featural_attention():
     neural_network = initialize_network()
@@ -225,7 +236,6 @@ Metrics:
         converged_attention = converge_attention(spatially_attended_stimuli, featurally_attended_stimuli, neural_network)
         propagate_attention(converged_attention, neural_network)
         execute_decision_based_on_converged_attention()
-
 
   mechanistic_model_for_attention():
     interneuron_types = ['Type1', 'Type2', 'Type3']
@@ -245,7 +255,6 @@ Metrics:
     apply_attention_based_on_working_memory(attention_system, search_template)
     central_executive = initialize_central_executive()
     control_working_memory(central_executive, working_memory)
-
 
   extended_cognitive_model():
     working_memory = initialize_working_memory()
@@ -284,25 +293,6 @@ Metrics:
             Formal_Logic: "if assessment_complete(): update_criteria()"
             Math_Functions: "C_new = C_old + η * (E - C_old)"
     
-CreativeThoughtModule: 
-  Objectives:
-    Originality: "O(x)"
-    Flexibility: "F(x)"
-    Subtlety: "S(x)"
-  Metrics:
-    Relevance: "R(x)"
-    Feasibility: "phi(x)"
-    Innovativeness: "I(x)"
-  QualityScoreFormula: "Q(x) = weighted_sum([R(x), phi(x), I(x), O(x), F(x), S(x)])"
-  ThoughtVoting:
-    FormalLogic: "argmax(Q(x))"
-  DFSPruning:
-    FormalLogic: "Prune(x) = x3 if Q(x3) < threshold"
-  SelfReflection:
-    FormalLogic: "SR(x) = Q(x) * self_assessment_factor(x)"
-  ReviewAndAdapt:
-    FormalLogic: "if iteration_complete(): FeedbackLoop(T, A1) -> Adaptations for next iteration"
-
      
 Pathway Modification Algorithm:
 Integration: "Incorporate into Delta-like_NTK layer."
@@ -458,16 +448,9 @@ class BetaLikeNTK:
 
     Update Adaptively: Check All
     def aligns_with_axioms(self, data, axiom): 
-  
-
     def is_consistent(self, elem):
-      
-
     def adjust_threshold(self, new_threshold):
- 
-
     def update_criteria(self, new_criteria):
-    
 
     # Main Loop for running the network
     def run_network(self):
@@ -506,7 +489,6 @@ Neural_Emulator Configuration:
   Metrics:
     QualityScoreFormula: "weighted_sum([Relevance, AlignmentWithState, ObservationalAccuracy])"
 
-
   MentalStateAlgorithms:
     VipassanaAlgorithm: Maintain rational overview at all times
       Function: "ObserveWithoutJudgment"
@@ -523,13 +505,64 @@ Neural_Emulator Configuration:
         - "focus_on_now"
         - "maintain_balance"
 
+  import numpy as np
+import random
+
+# Module 1: Value-to-Choice Transformer using Softmax
+def softmax(values):
+    exp_values = np.exp(values - np.max(values))
+    probabilities = exp_values / np.sum(exp_values)
+    return probabilities
+
+# Module 2: Evidence Accumulator based on Drift Diffusion Model
+def drift_diffusion_model(options, threshold=10, drift_rate=1):
+    evidence = 0
+    time = 0
+    while abs(evidence) < threshold:
+        evidence += drift_rate * random.choice(options)  # Here, options should be [-1, 1] or similar
+        time += 1
+    return "Option A" if evidence >= threshold else "Option B", time
+
+# Module 3: Noise Generator
+def add_noise(value, noise_level=0.1):
+    return value + np.random.normal(0, noise_level)
+
+# Module 4: Time-to-Decision Estimator (using DDM)
+def time_to_decision(options, threshold=10, drift_rate=1):
+    _, time = drift_diffusion_model(options, threshold, drift_rate)
+    return time
+
+# Module 5: Decision Variability Accounter
+def variable_decision(values, noise_level=0.1):
+    noisy_values = [add_noise(value, noise_level) for value in values]
+    probabilities = softmax(noisy_values)
+    return np.argmax(probabilities)
+
+# Test the modules
+subjective_values = [2.0, 3.0, 1.0]  # e.g., values for three different choices
+options_for_ddm = [-1, 1]  # Negative and positive drift for DDM
+
+# Transform values to choice probabilities
+choice_probabilities = softmax(subjective_values)
+
+# Accumulate evidence to make a decision
+decision, time_taken = drift_diffusion_model(options_for_ddm)
+
+# Time estimation for making a decision
+estimated_time = time_to_decision(options_for_ddm)
+
+# Make a variable decision
+var_decision = variable_decision(subjective_values)
+
+choice_probabilities, decision, time_taken, estimated_time, var_decision
+ 
+
   NeurochemistryLogic:
     Neurotransmitter: "Adapted based on the mental state being emulated."
     Brainwave: "Adapted based on the mental state being emulated."
   FormalLogicAndFormulas:
     StateAlignmentFormula: "SA(x) = weighted_sum([R(x), A(x), O(x)])"
     ObservationalLogic: "if observes(x): note_without_judgment(x)"
-
 
 import random
 
