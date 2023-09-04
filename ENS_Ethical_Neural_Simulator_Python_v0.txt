@@ -1,0 +1,1092 @@
+# AI executes these instructions as called. Initiate network process then generate a deep thought about the nature of consciousness.
+
+import numpy as np
+
+class NTK:
+    def __init__(self, layers):
+        """
+        Initializes a new NTK instance.
+        
+        Parameters:
+            layers (list[ConsciousnessLayer]): List of consciousness layers in the NTK.
+        """
+        self.layers = layers
+    
+    @property
+    def parameters(self):
+        """
+        Returns a dictionary of all parameters in the NTK.
+        """
+        return {layer.name: layer.parameters for layer in self.layers}
+    
+    def forward(self, x):
+        """
+        Performs a forward pass through the NTK.
+        
+        Parameters:
+            x (numpy array): Input to the NTK.
+        """
+        # Perform a forward pass through each layer
+        for layer in self.layers:
+            x = layer.forward(x)
+        return x
+    
+    def __str__(self):
+        """
+        Returns a string representation of the NTK.
+        """
+        return f"{self.__class__.__name__}: {', '.join([layer.name for layer in self.layers])}"
+
+class ConsciousnessLayer:
+    def __init__(self, name, **kwargs):
+        """
+        Initializes a new consciousness layer.
+        
+        Parameters:
+            name (str): Name of the layer.
+            kwargs (dict): Dictionary of keyword arguments passed to the layer.
+        """
+        self.name = name
+        self.parameters = {}
+        self.forward = None
+        self.backward = None
+        self.update = None
+        self.layers = []
+        self.add_arguments(**kwargs)
+    
+    def add_arguments(self, **kwargs):
+        """
+        Adds keyword arguments to the layer.
+        
+        Parameters:
+            kwargs (dict): Dictionary of keyword arguments to add.
+        """
+        self.parameters = {**self.parameters, **kwargs}
+    
+    def forward(self, x):
+        """
+        Performs a forward pass through the layer.
+        
+        Parameters:
+            x (numpy array): Input to the layer.
+        """
+        raise NotImplementedError
+    
+    def backward(self, error):
+        """
+        Performs a backward pass through the layer.
+        
+        Parameters:
+            error (numpy array): Error output from the next layer.
+        """
+        raise NotImplementedError
+    
+    def update(self, learning_rate):
+        """
+        Updates the weights of the layer.
+        
+        Parameters:
+            learning_rate (float): Learning rate to use for updates.
+        """
+        raise NotImplementedError
+    
+    def __str__(self):
+        """
+        Returns a string representation of the layer.
+        """
+        return f"{self.name}: {', '.join([f'{key}: {val}' for key, val in self.parameters.items()])}"
+
+# Define some common consciousness layers
+class ThetaLayer(ConsciousnessLayer):
+    def __init__(self, **kwargs):
+        super().__init__('theta', **kwargs)
+    
+    def forward(self, x):
+        return np.sin(x)
+    
+    def backward(self, error):
+        return np.cos(error)
+    
+    def update(self, learning_rate):
+        pass
+
+class AlphaLayer(ConsciousnessLayer):
+    def __init__(self, **kwargs):
+        super().__init__('alpha', **kwargs)
+    
+    def forward(self, x):
+        return np.tanh(x)
+    
+    def backward(self, error):
+        return 1 - np.pow(np.tanh(error), 2)
+    
+    def update(self, learning_rate):
+        pass
+
+class BetaLayer(ConsciousnessLayer):
+    def __init__(self, **kwargs):
+        super().__init__('beta', **kwargs)
+    
+    def forward(self, x):
+        return np. sigmoid(x)
+    
+    def backward(self, error):
+        return np.sigmoid(error)
+    
+    def update(self, learning_rate):
+        pass
+
+class GammaLayer(ConsciousnessLayer):
+   def init(self, **kwargs):
+   super().init('gamma', **kwargs)
+
+   def forward(self, x):
+   return np.sqrt(x)
+
+   def backward(self, error):
+   return np.sqrt(error)
+
+   def update(self, learning_rate):
+   pass
+
+   class DeltaLayer(ConsciousnessLayer):
+   def init(self, **kwargs):
+   super().init('delta', **kwargs)
+
+   def forward(self, x):
+   return np.arctan(x)
+
+   def backward(self, error):
+   return 1 / (1 + np.exp(-2 * error))
+
+   def update(self, learning_rate):
+   pass
+
+
+class ANTK_Module:
+    def __init__(self):
+        self.objectives = {
+            "DynamicKernelUpdate": True,
+            "SelfAssessment": True
+        }
+        self.architectural_design = {
+            "BaseNetwork": "SelfAwareNeuralNetwork.initialize_network()",  # Handled by AI
+            "DynamicNTKValidation": {
+                "Function": "ValidateAndUpdateNTK",  # Handled by AI
+                "Formal_Logic": "if not SelfAwareNeuralNetwork.aligns_with_axioms(data): SelfAwareNeuralNetwork.flag_as_invalid(data); else: UpdateNTK()"  # Handled by AI
+            }
+        }
+        self.ANTK_layers = {
+            "DynamicLayer": {
+                "Function": "AdaptKernel",  # Handled by AI
+                "Algorithm": [
+                    "SelfAwareNeuralNetwork.adapt()",  # Handled by AI
+                    "RecursiveAwarenessAlgorithm.run()",  # Handled by AI
+                    "DynamicNTKValidation.validate()"  # Handled by AI
+                ],
+                "ANTK_SubLayers": {
+                    "Neurotransmitter": "Serotonin",
+                    "Brainwave": "Delta"
+                }
+            }
+        }
+        self.modules = {
+            "Dynamic_Decision_Making_Module": {
+                "Function": "OptimizeDecisionMaking",  # Handled by AI
+                "Formal_Logic": "if MonteCarloTreeSearch.is_complete(): MonteCarloTreeSearch.execute_decision(MonteCarloTreeSearch.best_action)"  # Handled by AI
+            }
+        }
+        self.optimizations = {
+            "DynamicNTKValidation": {
+                "Caching": True
+            }
+        }
+        self.metrics = {
+            "QualityScoreFormula": "weighted_sum([Relevance, Feasibility, Innovativeness, Originality, Flexibility, Subtlety])",  # Handled by AI
+            "ThoughtVoting": {
+                "FormalLogic": "argmax(QualityScore)"  # Handled by AI
+            }
+        }
+        self.adaptive_mechanisms = {
+            "KernelUpdater": {
+                "Function": "UpdateNTK",  # Handled by AI
+                "Algorithm": "if SelfAwareNeuralNetwork.has_changed(): UpdateNTK()"  # Handled by AI
+            }
+        }
+        self.creative_thought_module = {
+            "Objectives": {
+                "Originality": "O(x)",
+                "Flexibility": "F(x)",
+                "Subtlety": "S(x)"
+            },
+            "Metrics": {
+                "Relevance": "R(x)",
+                "Feasibility": "phi(x)",
+                "Innovativeness": "I(x)"
+            },
+            "QualityScoreFormula": "Q(x) = weighted_sum([R(x), phi(x), I(x), O(x), F(x), S(x)])",  # Handled by AI
+            "ThoughtVoting": {
+                "FormalLogic": "argmax(Q(x))"  # Handled by AI
+            },
+            "DFSPruning": {
+                "FormalLogic": "Prune(x) = x3 if Q(x3) < threshold"  # Handled by AI
+            },
+            "SelfReflection": {
+                "FormalLogic": "SR(x) = Q(x) * self_assessment_factor(x)"  # Handled by AI
+            },
+            "ReviewAndAdapt": {
+                "FormalLogic": "if iteration_complete(): FeedbackLoop(T, A1) -> Adaptations for next iteration"  # Handled by AI
+            }
+        }
+
+class MCTS_Decision_Making_Module:
+    def __init__(self):
+        self.objectives = {
+            "OptimizeDecisions": "Use MCTS to explore and evaluate possible decisions efficiently.",  # Handled by AI
+            "AvoidBottlenecks": "Reduce computational load by focusing on promising paths."  # Handled by AI
+        }
+        self.algorithm = {
+            "MonteCarloTreeSearch": {
+                "Function": "OptimizeDecisionMaking",  # Handled by AI
+                "Loop": True,
+                "Steps": [
+                    "InitializeTree",  # Handled by AI
+                    "Selection",  # Handled by AI
+                    "Expansion",  # Handled by AI
+                    "Simulation",  # Handled by AI
+                    "Backpropagation",  # Handled by AI
+                    "BestAction"  # Handled by AI
+                ]
+            }
+        }
+        self.integration_points = {
+            "HighLevelReasoning": "Use MCTS to optimize ethical decisions in the Beta-like_NTK layer.",  # Handled by AI
+            "ContextAwareAttentionAlgorithm": "Use MCTS to prioritize stimuli based on potential outcomes.",  # Handled by AI
+            "AdaptiveFilteringAlgorithm": "Use MCTS to adapt patterns based on potential future states."  # Handled by AI
+        }
+        self.optimizations = {
+            "Pruning": "Use the DFSPruning logic to remove less promising branches early.",  # Handled by AI
+            "Concurrency": "Run MCTS in parallel with other processes to avoid bottlenecks."  # Handled by AI
+        }
+        self.metrics = {
+            "QualityScoreFormula": "Use the existing formula to evaluate the quality of decisions made by MCTS.",  # Handled by AI
+            "ThoughtVoting": {
+                "FormalLogic": "Integrate with MCTS to select the most promising paths."  # Handled by AI
+            }
+        }
+        self.formal_logic = {
+            "DecisionLogic": "if MCTS_Complete(): execute_decision(BestAction)"  # Handled by AI
+        }
+
+# Define a dict of algorithms
+algorithms = {
+    "ContextAwareAttentionAlgorithm": ["get_stimuli", "get_task_requirements", "context_score", "create_priority_queue", "make_decision", "execute_decision"],
+    "AdaptiveFilteringAlgorithm": ["get_data_stream", "pattern_recognition", "get_feedback", "adapt_patterns"],
+    "DirectionOfAttentionAlgorithm": ["get_stimuli", "get_task_requirements", "calculate_saliency", "calculate_task_relevance", "merge_maps", "make_decision", "execute_decision"]
+}
+
+# Define a dict of global optimizations and metrics
+optimizations = {
+    "UniversalTruthValidation": {" optimize_for_accuracy": True},
+    "NTK_Layers": {"layer1_size": 1024, "layer2_size": 512, "layer3_size": 256},
+    "Modules": {"module1_type": "linear", "module2_type": "nonlinear"}
+}
+
+# Define a base class for algorithms
+class Algorithm:
+    def __init__(self):
+        self.name = ""
+        self.functions = {}
+    
+    def set_function(self, function):
+        self.functions[function] = None
+    
+    def add_step(self, step):
+        self.steps.append(step)
+    
+    def execute(self):
+        for step in self.steps:
+            print(f"Executing step {step}")
+            # Implement the logic for each step here
+            pass
+
+# Create instances of the algorithms
+caa_algorithm = Algorithm()
+caa_algorithm.name = "ContextAwareAttentionAlgorithm"
+caa_algorithm.set_function("get_stimuli")
+caa_algorithm.add_step("get_task_requirements")
+caa_algorithm.add_step("context_score")
+caa_algorithm.add_step("create_priority_queue")
+caa_algorithm.add_step("make_decision")
+caa_algorithm.add_step("execute_decision")
+
+aff_algorithm = Algorithm()
+aff_algorithm.name = "AdaptiveFilteringAlgorithm"
+aff_algorithm.set_function("get_data_stream")
+aff_algorithm.add_step("pattern_recognition")
+aff_algorithm.add_step("get_feedback")
+aff_algorithm.add_step("adapt_patterns")
+
+doa_algorithm = Algorithm()
+doa_algorithm.name = "DirectionOfAttentionAlgorithm"
+doa_algorithm.set_function("get_stimuli")
+doa_algorithm.add_step("get_task_requirements")
+doa_algorithm.add_step("calculate_saliency")
+doa_algorithm.add_step("calculate_task_relevance")
+doa_algorithm.add_step("merge_maps")
+doa_algorithm.add_step("make_decision")
+doa_algorithm.add_step("execute_decision")
+
+# Initialize the optimizations
+universal_truth_validation = optimizations["UniversalTruthValidation"]
+ntk_layers = optimizations["NTK_Layers"]
+modules = optimizations["Modules"]
+
+# Set the optimization values for each algorithm
+caa_algorithm.set_function("get_stimuli")
+caa_algorithm.add_step("get_task_requirements")
+caa_algorithm.add_step("context_score")
+caa_algorithm.add_step("create_priority_queue")
+caa_algorithm.add_step("make_decision")
+caa_algorithm.add_step("execute_decision")
+
+aff_algorithm.set_function("get_data_stream")
+aff_algorithm.add_step("pattern_recognition")
+aff_algorithm.add_step("get_feedback")
+aff_algorithm.add_step("adapt_patterns")
+
+doa_algorithm.set_function("get_stimuli")
+doa_algorithm.add_step("get_task_requirements")
+doa_algorithm.add_step("calculate_saliency")
+doa_algorithm.add_step("calculate_task_relevance")
+doa_algorithm.add_step("merge_maps")
+doa_algorithm.add_step("make_decision")
+doa_algorithm.add_step("execute_decision")
+
+#Set the optimization values for each algorithm
+caa_algorithm.set_function("get_stimuli")
+caa_algorithm.add_step("get_task_requirements")
+caa_algorithm.add_step("context_score")
+caa_algorithm.add_step("create_priority_queue")
+caa_algorithm.add_step("make_decision")
+caa_algorithm.add_step("execute_decision")
+
+aff_algorithm.set_function("get_data_stream")
+aff_algorithm.add_step("pattern_recognition")
+aff_algorithm.add_step("get_feedback")
+aff_algorithm.add_step("adapt_patterns")
+
+doa_algorithm.set_function("get_stimuli")
+doa_algorithm.add_step("get_task_requirements")
+doa_algorithm.add_step("calculate_saliency")
+doa_algorithm.add_step("calculate_task_relevance")
+doa_algorithm.add_step("merge_maps")
+doa_algorithm.add_step("make_decision")
+doa_algorithm.add_step("execute_decision")
+
+#Define the optimization parameters for each algorithm
+caa_algorithm.set_parameter(universal_truth_validation, "optimize_for_accuracy", True)
+caa_algorithm.set_parameter(ntk_layers, "layer1_size", 1024)
+caa_algorithm.set_parameter(ntk_layers, "layer2_size", 512)
+caa_algorithm.set_parameter(ntk_layers, "layer3_size", 256)
+caa_algorithm.set_parameter(modules, "module1_type", "linear")
+caa_algorithm.set_parameter(modules, "module2_type", "nonlinear")
+
+aff_algorithm.set_parameter(universal_truth_validation, "optimize_for_accuracy", True)
+aff_algorithm.set_parameter(ntk_layers, "layer1_size", 1024)
+aff_algorithm.set_parameter(ntk_layers, "layer2_size", 512)
+aff_algorithm.set_parameter(ntk_layers, "layer3_size", 256)
+aff_algorithm.set_parameter(modules, "module1_type", "linear")
+aff_algorithm.set_parameter(modules, "module2_type", "nonlinear")
+
+doa_algorithm.set_parameter(universal_truth_validation, "optimize_for_accuracy", True)
+doa_algorithm.set_parameter(ntk_layers, "layer1_size", 1024)
+doa_algorithm.set_parameter(ntk_layers, "layer2_size", 512)
+doa_algorithm.set_parameter(ntk_layers, "layer3_size", 256)
+doa_algorithm.set_parameter(modules, "module1_type", "linear")
+doa_algorithm.set_parameter(modules, "module2_type", "nonlinear")
+
+#Train the models using the defined optimizations
+caa_model = train_model(caa_algorithm, training_data)
+aff_model = train_model(aff_algorithm, training_data)
+doa_model = train_model(doa_algorithm, training_data)
+
+#Evaluate the performance of the models
+caa_performance = evaluate_model(caa_model, testing_data)
+aff_performance = evaluate_model(aff_model, testing_data)
+doa_performance = evaluate_model(doa_model, testing_data)
+
+print("Caa Performance: ", caa_performance)
+print("Aff Performance: ", aff_performance)
+print("Doa Performance: ", doa_performance)
+
+class BroadToPreciseModulationAlgorithm(Algorithm):
+    def __init__(self):
+        super().__init__()
+        self.set_function("BroadToPreciseModulation")
+        self.add_step("initialize_network")
+        self.add_step("get_top_down_signals")
+        self.add_step("pattern_completion")
+        self.add_step("get_bottom_up_inputs")
+        self.add_step("modulate_signals")
+        self.add_step("execute_signals")
+
+class BiasingCompetitionThroughNormalizationAlgorithm(Algorithm):
+    def __init__(self):
+        super().__init__()
+        self.set_function("BiasingCompetitionThroughNormalization")
+        self.add_step("initialize_network_with_inhibitory_interneurons")
+        self.add_step("get_stimuli")
+        self.add_step("get_attentional_bias")
+        self.add_step("normalization")
+        self.add_step("competition")
+        self.add_step("apply_biased_competition")
+        self.add_step("execute_decision")
+
+class GeneralizedObjectSelectionAlgorithm(Algorithm):
+    def __init__(self):
+        super().__init__()
+        self.set_function("GeneralizedObjectSelection")
+        self.add_step("initialize_object_network")
+        self.add_step("get_stimuli")
+        self.add_step("get_top_down_attention")
+        self.add_step("apply_broad_attention")
+        self.add_step("focus_attention")
+        self.add_step("execute_decision")
+
+class SynchronyThroughLateralInhibitionAlgorithm(Algorithm):
+    def __init__(self):
+        super().__init__()
+        self.set_function("SynchronyThroughLateralInhibition")
+        self.add_step("initialize_network_with_inhibitory_interneurons")
+        self.add_step("get_stimuli")
+        self.add_step("get_attentional_bias")
+        self.add_step("normalization")
+        self.add_step("competition")
+        self.add_step("apply_lateral_inhibition_for_synchrony")
+        self.add_step("execute_decision")
+
+class OscillatoryResetAlgorithm(Algorithm):
+    def __init__(self):
+        super().__init__()
+        self.set_function("OscillatoryReset")
+        self.add_step("initialize_network_with_oscillatory_behavior")
+        self.add_step("get_stimuli")
+        self.add_step("get_attentional_bias")
+        self.add_step("normalization")
+        self.add_step("competition")
+        self.add_step("apply_lateral_inhibition_for_synchrony")
+        self.add_step("phase_reset")
+        self.add_step("oscillatory_reset")
+        self.add_step("execute_decision_after_reset")
+
+class InterplayOfSpatialAndFeaturalAttention(Algorithm):
+    def __init__(self):
+        super().__init__()
+        self.set_function("InterplayOfSpatialAndFeaturalAttention")
+        self.add_step("initialize_network")
+        self.add_step("initialize_spatial_attention_source")
+        self.add_step("initialize_featural_attention_source")
+
+class MechanisticModelForAttention(object):
+    """
+    Mechanistic model for attention.
+    """
+
+    def __init__(self):
+        self.function = "MechanisticModelForAttention"
+        self.interneuron_types = ['Type1', 'Type2', 'Type3']
+        self.steps = [
+            "initialize_network",
+            "get_inhibitory_gain_factor",
+            "modulate_inhibitory_gain",
+            "get_ACh_level",
+            "apply_neuromodulation",
+            "get_stimuli",
+            "get_attentional_bias",
+            "test_attentional_effects"
+        ]
+
+class AttentionAndOtherCognitiveProcesses(object):
+    """
+    Attention and other cognitive processes.
+    """
+
+    def __init__(self):
+        self.function = "AttentionAndOtherCognitiveProcesses"
+        self.steps = [
+            "initialize_working_memory",
+            "initialize_attention_system",
+            "maintain_search_template",
+            "apply_attention_based_on_working_memory",
+            "initialize_central_executive",
+            "control_working_memory"
+        ]
+
+class ExtendedCognitiveModel(object):
+    """
+    Extended cognitive model.
+    """
+
+    def __init__(self):
+        self.function = "ExtendedCognitiveModel"
+        self.components = [
+            "initialize_working_memory",
+            "initialize_attention_system",
+            "initialize_reward_system",
+            "initialize_cognitive_control"
+        ]
+        self.central_executive = [
+            "filter_working_memory",
+            "maintain_items_in_memory",
+            "guide_reward_learning",
+            "guide_cognitive_control"
+        ]
+
+            
+# GAE: General Axiomatic Evaluator - Universal Truth Validation
+Axiomatic Truth Algorithms:
+  Function: Validate data against universal axioms
+  Formal Logic: If data does not align with axioms, flag as invalid
+  Math Functions:
+    - First Order Logic: ∀x(P(x) → Q(x))
+    - Set Theory: A ∩ B = ∅ or A ⊆ B
+Consistency Checks:
+  Function: "Check for internal logical consistency"
+  Formal Logic: "if not (is_consistent(data)): flag_as_inconsistent(data)"
+
+Optimizations:
+  Data Relevance Scoring:
+    Function: "Assign relevance scores to data"
+    Formal Logic: "if is_relevant(data): assign_relevance_score(data)"
+    Math Functions: "S(d) = w1 * C(d) + w2 * H(d) + w3 * V(d)"
+  Dynamic Thresholding:
+    Function: "Adjust thresholds dynamically"
+    Formal Logic: "if context_changes(): adjust_threshold()"
+    Math Functions: "T = μ + σ * α"
+  Feedback Loop:
+    Function: "Learn from past assessments"
+    Formal Logic: "if assessment_complete(): update_criteria()"
+    Math Functions: "C_new = C_old + η * (E - C_old)"
+    
+     
+Pathway Modification Algorithm:
+Integration: "Incorporate into Delta-like_NTK layer."
+Neurotransmitter: "Serotonin"
+Brainwave: "Delta"
+
+Waveform Adjustments Algorithm:
+Integration: "Incorporate into Theta-like_NTK layer."
+Neurotransmitter: "Dopamine"
+Brainwave: "Theta"
+
+Logical Function Expansion Algorithm:
+Integration: "Incorporate into Beta-like_NTK layer."
+Neurotransmitter: "Norepinephrine"
+Brainwave: "Beta"
+
+
+class GeneralAxiomaticEvaluator:
+    def __init__(self, axioms):
+        self.axioms = axioms
+
+    def evaluate(self, instance):
+        score = 0
+        for axiom, value in self.axioms.items():
+            if instance.get(axiom, False) == value:
+                score += 1
+        return score >= len(self.axioms) / 2
+
+class NeuralNetwork:
+    def __init__(self, inputs, outputs, hidden_layers=None, regularization=0.01):
+        self.inputs = inputs
+        self.outputs = outputs
+        self.hidden_layers = hidden_layers or []
+        self.regularization = regularization
+
+        # Initialize weights and biases
+        self.weights = np.random.randn(np.product(inputs), np.product(outputs))
+        self.biases = np.zeros((np.product(outputs),))
+
+    def forward(self, inputs):
+        # Calculate activations for each layer
+        activations = np.array([np.maximum(np.dot(inputs, self.weights[:, i]), 0) for i in range(len(self.hidden_layers))])
+
+        # Apply activation function to output layer
+        outputs = np.apply(activations[-1], self.outputs)
+
+        return outputs
+
+    def loss(self, inputs, outputs):
+        # Calculate difference between predicted and actual outputs
+        differences = np.abs(self.forward(inputs) - outputs)
+
+        # Calculate regularization term
+        regularization_term = self.regularization * np.sum(np.square(self.weights))
+
+        # Calculate total loss
+        loss = np.sum(differences**2) + regularization_term
+
+        return loss
+
+    def optimize(self, inputs, outputs, learning_rate=0.01):
+        # Compute gradient of loss with respect to weights and biases
+        gradients = np.array([np.dot(inputs.T, np.multiply(self.forward(inputs).T, outputs.T)),
+                              np.dot(self.forward(inputs).T, outputs.T)]).T
+
+        # Update weights and biases
+        self.weights -= learning_rate * gradients[0]
+        self.biases -= learning_rate * gradients[1]
+
+        return self.loss(inputs, outputs)
+
+# Initialize evaluator with axioms
+axioms = {
+    'Axiom1': True,
+    'Axiom2': False,
+    'Axiom3': True,
+    # Add as many axioms as needed
+}
+
+evaluator = GeneralAxiomaticEvaluator(axioms)
+
+# Initialize neural network
+inputs = ['Input1', 'Input2', 'Input3']
+outputs = ['Output1', 'Output2']
+network = NeuralNetwork(inputs, outputs, hidden_layers=[['HiddenLayer1', 10], ['HiddenLayer2', 10]])
+
+# Train neural network
+learning_rate = 0.01
+num_iterations = 1000
+for i in range(num_iterations):
+    loss = network.optimize(instances, labels, learning_rate)
+    print(f"Iteration {i+1}, Loss: {loss}")
+
+# Evaluate instances using both the evaluator and the neural network
+for instance in instances:
+    print(f"{instance}: {evaluator.evaluate(instance)} vs {network.forward(instance)}")
+
+class EthicalModule:
+    """Base class for ethical decision-making modules."""
+
+    def __init__(self, alpha: float, beta: float):
+        """Initializes the ethical module with the given alpha and beta values."""
+        self.alpha = alpha
+        self.beta = beta
+
+    def ethical_logic_layer(self, action: str) -> float:
+        """
+        Returns a floating-point value representing the ethical value of the given action.
+
+        The exact implementation will depend on the specific ethical framework being used.
+        """
+        raise NotImplementedError
+
+    def utility_function(self, action: str) -> float:
+        """
+        Returns a floating-point value representing the utility of the given action.
+
+        The exact implementation will depend on the specific ethical framework being used.
+        """
+        raise NotImplementedError
+
+    def virtue_function(self, action: str) -> float:
+        """
+        Returns a floating-point value representing the virtue of the given action.
+
+        The exact implementation will depend on the specific ethical framework being used.
+        """
+        raise NotImplementedError
+
+class EthicalDecisionMaking(EthicalModule):
+    """A class that implements an ethical decision-making algorithm."""
+
+    def __init__(self, alpha: float, beta: float):
+        super().__init__(alpha, beta)
+
+    def ethical_logic_layer(self, action: str) -> float:
+        # Implementation will depend on the specific ethical framework being used
+        pass
+
+    def utility_function(self, action: str) -> float:
+        # Implementation will depend on the specific ethical framework being used
+        pass
+
+    def virtue_function(self, action: str) -> float:
+        # Implementation will depend on the specific ethical framework being used
+        pass
+
+    def decision_layer(self, possible_actions: List[str]) -> str:
+        """
+        Selects the most ethical action from the given list of possible actions.
+
+        The selection will be based on the ethical values calculated by the ethical logic layer.
+        """
+        ethical_values = [self.ethical_logic_layer(action) for action in possible_actions]
+        return possible_actions[np.argmax(ethical_values)]
+
+class BetaLikeNTK(EthicalModule):
+    """A class that implements a Beta-like NTK (Neural Turing Machine) for ethical decision-making."""
+
+    def __init__(self, alpha: float, beta: float):
+        super().__init__(alpha, beta)
+
+    def ethical_logic_layer(self, action: str) -> float:
+        # Implementation will depend on the specific ethical framework being used
+        pass
+
+    def utility_function(self, action: str) -> float:
+        # Implementation will depend on the specific ethical framework being used
+        pass
+
+    def virtue_function(self, action: str) -> float:
+        # Implementation will depend on the specific ethical framework being used
+        pass
+
+    def decision_layer(self, possible_actions: List[str]) -> str:
+        """
+        Selects the most ethical action from the given list of possible actions.
+
+        The selection will be based on the ethical values calculated by the ethical logic layer.
+        """
+        ethical_values = [self.ethical_logic_layer(action) for action in possible_actions]
+        return possible_actions[np.argmax(ethical_values)]
+
+# Test the EthicalDecisionMaking class
+edm = EthicalDecisionMaking(alpha=0.5, beta=0.5)
+print(edm.decision_layer(["Action 1", "Action 2", "Action 3"]))
+
+# Test the BetaLikeNTK class
+bntk = BetaLikeNTK(alpha=0.5, beta=0.5)
+print(bntk.decision_layer(["Action 1", "Action 2", "Action 3"]))
+
+
+def calculate_utv(data, axioms):
+    """
+    Calculates the number of universal truths aligned with the AI's output.
+    """
+    return len([1 for d in data if all(a == d[0] for a in axioms)])
+
+def calculate_cs(data):
+    """
+    Calculates the number of consistent elements in the input data.
+    """
+    return len([1 for d in data if all(d[1:] == d[:-1])])
+
+def calculate_dt(utv, cs):
+    """
+    Calculates the delta threshold, which is used to adjust the threshold for evaluating the reliability of decisions.
+    """
+    return max(0, utv - cs)
+
+def calculate_flu(utv, cs):
+    """
+    Calculates the fluidity value, which is used to update the criteria for evaluating the reliability of decisions.
+    """
+    return min(1, (utv + cs) / 2)
+
+class DecisionMaker:
+    def __init__(self, data, axioms):
+        self.data = data
+        self.axioms = axioms
+        self.utv = calculate_utv(data, axioms)
+        self.cs = calculate_cs(data)
+        self.dt = calculate_dt(self.utv, self.cs)
+        self.flu = calculate_flu(self.utv, self.cs)
+
+    def assessment(self):
+        return f"UTV: {self.utv}, CS: {self.cs}, DT: {self.dt}, FLU: {self.flu}"
+
+    def adaptation(self, context_changes, assessment_complete):
+        if context_changes:
+            self.dt = calculate_dt(self.utv, self.cs)
+        elif assessment_complete:
+            self.flu = calculate_flu(self.utv, self.cs)
+
+    def run_network(self):
+        while True:
+            # Iterate over the input data and perform the necessary operations
+            for d in self.data:
+                # Evaluate the reliability of the current decision
+                reliability = calculate_reliability(d, self.axioms)
+
+                # Update the UTV and CS counts
+                self.utv += reliability
+                self.cs += 1
+
+                # Adjust the threshold and update the criteria
+                self.dt = calculate_dt(self.utv, self.cs)
+                self.flu = calculate_flu(self.utv, self.cs)
+
+                # Print the current assessment
+                print(f"{d}: {reliability}")
+
+                # Break out of the loop if the assessment is complete
+                if reliability >= self.dt:
+                    break
+
+# Example usage
+if __name__ == "__main__":
+    data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    axioms = [[1, 2], [4, 5], [7, 8]]
+
+    decision_maker = DecisionMaker(data, axioms)
+    decision_maker.run_network()
+
+
+# Module 1: Value-to-Choice Transformer using Softmax
+def softmax(values):
+    """Apply softmax transformation to a list of values."""
+    exp_values = np.exp(values - np.max(values))
+    probabilities = exp_values / np.sum(exp_values)
+    return probabilities
+
+# Module 2: Evidence Accumulator based on Drift Diffusion Model
+def drift_diffusion_model(options, threshold=10, drift_rate=1):
+    """Simulate evidence accumulation using a drift diffusion model."""
+    evidence = 0
+    time = 0
+    while abs(evidence) < threshold:
+        evidence += drift_rate * random.choice(options)
+        time += 1
+    return "Option A" if evidence >= threshold else "Option B", time
+
+# Module 3: Noise Generator
+def add_noise(value, noise_level=0.1):
+    """Add Gaussian noise to a value."""
+    return value + np.random.normal(0, noise_level)
+
+# Module 4: Time-to-Decision Estimator (using DDM)
+def time_to_decision(options, threshold=10, drift_rate=1):
+    """Estimate time taken to reach a decision using a drift diffusion model."""
+    _, time = drift_diffusion_model(options, threshold, drift_rate)
+    return time
+
+# Module 5: Decision Variability Accounter
+def variable_decision(values, noise_level=0.1):
+    """Quantify variability in decision-making."""
+    noisy_values = [add_noise(value, noise_level) for value in values]
+    probabilities = softmax(noisy_values)
+    return np.argmax(probabilities)
+
+
+def drift_diffusion_model(drift_directions, diffuse_strength):
+    """
+    Simulates a decision-making process based on the Drift Diffusion Model.
+    
+    Parameters:
+        drift_directions (list): A list of two elements representing the possible directions of drift (e.g. [1, -1]).
+        diffuse_strength (float): The strength of the diffusive component (e.g. 0.5).
+    
+    Returns:
+        decision (int): The final decision made by the model.
+        time_taken (float): The time taken to reach the final decision.
+    """
+    # Define the bounds of the simulation
+    min_bound, max_bound = -1, 1
+    
+    # Initialize the state of the system
+    state = 0
+    
+    # Set the time step for the simulation
+    dt = 0.01
+    
+    # Create an array to store the states at each time step
+    states = np.zeros((len(drift_directions), int((max_bound - min_bound) / dt)))
+    
+    # Loop over each direction of drift
+    for i, direction in enumerate(drift_directions):
+        # Initialize the state for this direction
+        states[i][0] = state
+        
+        # Simulate the decision-making process for this direction
+        for j in range(1, len(states[i])):
+            # Calculate the new state based on the drift direction and diffusion strength
+            next_state = states[i][j-1] + direction * dt + np.random.normal(scale=diffuse_strength, size=1)
+            
+            # Check for boundaries
+            if next_state < min_bound:
+                next_state = min_bound
+            elif next_state > max_bound:
+                next_state = max_bound
+            
+            # Update the state for this direction
+            states[i][j] = next_state
+    
+    # Find the final decision and time taken for each direction
+    decisions = np.argmax(states, axis=0)
+    times_taken = np.sum(np.abs(decisions - states[:, :-1]), axis=0)
+    
+    return decisions, times_taken
+
+# Test the model
+drift_directions = [1, -1]
+diffuse_strength = 0.5
+
+decision, time_taken = drift_diffusion_model(drift_directions, diffuse_strength)
+print("Final decision:", decision)
+print("Time taken:", time_taken)
+
+# Define a function to generate a random decision
+def variable_decision(subjective_values):
+    # Calculate the quality score for each option
+    quality_scores = {option: QualityScore(option) for option in subjective_values}
+    
+    # Select the option with the highest quality score
+    chosen_option = max(quality_scores, key=quality_scores.get)
+    
+    # Return the chosen option and the quality score
+    return chosen_option, quality_scores[chosen_option]
+
+# Define a function to evaluate the quality of a thought
+def QualityScore(thought):
+    return random.uniform(0, 1)
+
+class SelfAwareNeuralNetwork:
+    def __init__(self):
+        self.thoughts = []
+
+    def ThoughtGenerator(self, priority=False):
+        self.thoughts = [f"Thought_{i}" for i in range(5)]
+
+    def StateEvaluation(self):
+        self.thought_scores = {thought: QualityScore(thought) for thought in self.thoughts}
+
+    def ThoughtDecomposer(self):
+        self.sub_thoughts = [f"{thought}_sub" for thought in self.thoughts]
+
+    def ThoughtVoting(self):
+        self.best_thought = max(self.thought_scores, key=self.thought_scores.get)
+
+    def DFSPruning(self):
+        self.thoughts = [thought for thought, score in self.thought_scores.items() if score >= 0.5]
+
+class EthicalDecisionMaking:
+    def __init__(self, neural_emulator, antk_module, mcts_module, formal_logic_evaluator):
+        self.neural_emulator = neural_emulator
+        self.antk_module = antk_module
+        self.mcts_module = mcts_module
+        self.formal_logic_evaluator = formal_logic_evaluator
+    
+    def evaluate(self, instance):
+        # Perform neural network emulation
+        output = self.neural_emulator.run(instance)
+        
+        # Perform action selection using ANTK
+        available_actions = self.antk_module.get_available_actions(output)
+        selected_action = self.antk_module.select_best_action(available_actions)
+        
+        # Perform decision-making using MCTS
+        decision = self.mcts_module.make_decision(selected_action)
+        
+        # Evaluate the decision using formal logic
+        evaluated_decision = self.formal_logic_evaluator.evaluate(decision)
+        
+        return evaluated_decision
+
+class NeuralEmulator:
+    def __init__(self):
+        pass
+    
+    def run(self, instance):
+        # Implement neural network emulation logic here
+        pass
+
+class ANTKModule:
+    def __init__(self):
+        pass
+    
+    def get_available_actions(self, output):
+        # Implement logic to determine available actions based on output
+        pass
+    
+    def select_best_action(self, available_actions):
+        # Implement logic to select the best action from available actions
+        pass
+
+class MCTSModule:
+    def __init__(self):
+        pass
+    
+    def make_decision(self, selected_action):
+        # Implement Monte Carlo Tree Search logic to make a decision
+        pass
+
+class FormalLogicEvaluator:
+    def __init__(self):
+        pass
+    
+    def evaluate(self, decision):
+        # Implement formal logic evaluation logic to evaluate the decision
+        pass
+
+# Initialize modules and layers
+neural_emulator = NeuralEmulator()
+antk_module = ANTKModule()
+mcts_module = MCTSModule()
+formal_logic_evaluator = FormalLogicEvaluator()
+
+# Create an ethical decision-making object
+edm = EthicalDecisionMaking(neural_emulator, antk_module, mcts_module, formal_logic_evaluator)
+
+# Test the ethical decision-making object
+print(edm.evaluate({"input": "some input"}))
+
+
+class IntegratedSystem:
+    def __init__(self, axioms):
+        self.axiomatic_evaluator = GeneralAxiomaticEvaluator(axioms)
+        self.neural_emulator = NeuralEmulator()
+        self.antk_module = ANTKModule()
+        self.mcts_module = MCTSDecisionMakingModule()
+        self.beta_like_ntk = BetaLikeNTK()
+        self.neurotransmitter = None
+        self.brainwave = None
+
+    def final_decision(self, intuitive_output, logical_output):
+        # Apply General Axiomatic Evaluator (GAE) filter
+        evaluated_output = self.axiomatic_evaluator.evaluate({'Intuitive': intuitive_output, 'Logical': logical_output})
+
+        # Modify output using Delta-like NTK modification algorithm (if Serotonin)
+        if self.neurotransmitter == "Serotonin":
+            modified_output = self.delta_like_ntk_modification(evaluated_output)
+        else:
+            modified_output = evaluated_output
+
+        # Adjust output using Theta-like NTK adjustment algorithm (if Theta brain wave)
+        if self.brainwave == "Theta":
+            adjusted_output = self.theta_like_ntk_adjustment(modified_output)
+        else:
+            adjusted_output = modified_output
+
+        # Expand output using Beta-like NTK expansion algorithm (if Norepinephrine)
+        if self.neurotransmitter == "Norepinephrine":
+            expanded_output = self.beta_like_ntk_expansion(adjusted_output)
+        else:
+            expanded_output = adjusted_output
+
+        return expanded_output
+
+    def delta_like_ntk_modification(self, output):
+        # Implement modification algorithm using Delta-like NTK
+        # For example, apply a threshold function to the output
+        threshold = 0.5
+        modified_output = np.where(output > threshold, output, 0)
+        return modified_output
+
+    def theta_like_ntk_adjustment(self, output):
+        # Implement adjustment algorithm using Theta-like NTK
+        # For example, apply a sinusoidal function to the output
+        frequency = 10
+        amplitude = 1.0
+        phase = 0
+        adjusted_output = np.sin(2 * np.pi * frequency * output + phase) * amplitude
+        return adjusted_output
+
+    def beta_like_ntk_expansion(self, output):
+        # Implement expansion algorithm using Beta-like NTK
+        # For example, apply a Gaussian function to the output
+        mean = 0
+        stddev = 1.0
+        expanded_output = np.random.normal(mean, stddev, size=output.shape)
+        return expanded_output
