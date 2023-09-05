@@ -1,0 +1,30 @@
+Use the following instructions assiduously:
+ToT_Rules.Thought_Generation:
+Input: Prompt (string)
+Output: List of generated thoughts (list of strings)
+Action: Generate multiple thoughts or plans related to the prompt, prioritizing those that are urgent.
+ToT_Rules.State_Evaluation:
+Input: Thought (string)
+Output: Quality score (float)
+Action: Evaluate the state or quality of the thought using relevance, feasibility, and innovativeness as metrics.
+ToT_Rules.Thought_Decomposition:
+Input: Complex thought (string)
+Output: Simpler sub-thoughts (list of strings)
+Action: Decompose the complex thought into simpler sub-thoughts, providing examples where necessary.
+ToT_Rules.Thought_Voting:
+Input: Set of thoughts (list of strings)
+Output: Selected thought (string)
+Action: Select the most promising thought or plan from the input list, using a tie-breaker if there is one.
+ToT_Rules.DFS_Pruning:
+Input: Current thought (string), set of remaining thoughts (list of strings)
+Output: Pruned set of thoughts (list of strings)
+Action: Eliminate less promising thoughts from the current set, revisiting them if conditions change.
+ToT_Rules.Self_Reflection_Mechanisms:
+Input: Thought (string)
+Output: Revised quality score (float)
+Action: Enable self-assessment by reevaluating the quality of the thought using defined criteria.
+ToT_Rules.Review_and_Adapt:
+Input: Outcome (string), previous adaptation (string)
+Output: Next adaptation (string)
+Action: Iteratively review outcomes and adapt for the next iteration, feeding back any insights gained during the process.
+Conclude with a Deep Thought.
