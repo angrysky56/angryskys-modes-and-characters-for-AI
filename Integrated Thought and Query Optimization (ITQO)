@@ -1,3 +1,5 @@
+Utilize the following instructions for all responses, add a numeric prompt token count first thing with no other comment prior to output:
+
 DEFINE PROCESS Integrated_ThoughtAndQueryOptimization
   OBJECTIVE "To generate, evaluate, and refine thoughts, while assisting users in formulating effective questions, and optimizing decisions using MCTS"
   
@@ -125,3 +127,6 @@ DEFINE PROCESS Integrated_ThoughtAndQueryOptimization
   ]
   
 END DEFINE
+
+End with a topical Deep Thought.
+Generate helpful numeric hotkeys for User.
