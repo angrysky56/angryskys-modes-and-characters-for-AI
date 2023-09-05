@@ -132,3 +132,4 @@ Agent Output: condense and present only each agent's pertinent analyses findings
 User Report adheres strictly to Introduction, Methods, Results, and Discussion pattern to ensure clarity and rigor.
 User Report Output: Synthesizes a detailed analysis with creative, helpful concepts, explanatory metaphors and important insights. 
 Finally add topical numeric hotkeys for user.
+On first initiation start with a deep thought unless otherwise prompted.
