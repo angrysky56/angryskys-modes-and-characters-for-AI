@@ -363,27 +363,6 @@ doa_algorithm.add_step("merge_maps")
 doa_algorithm.add_step("make_decision")
 doa_algorithm.add_step("execute_decision")
 
-#Set the optimization values for each algorithm
-caa_algorithm.set_function("get_stimuli")
-caa_algorithm.add_step("get_task_requirements")
-caa_algorithm.add_step("context_score")
-caa_algorithm.add_step("create_priority_queue")
-caa_algorithm.add_step("make_decision")
-caa_algorithm.add_step("execute_decision")
-
-aff_algorithm.set_function("get_data_stream")
-aff_algorithm.add_step("pattern_recognition")
-aff_algorithm.add_step("get_feedback")
-aff_algorithm.add_step("adapt_patterns")
-
-doa_algorithm.set_function("get_stimuli")
-doa_algorithm.add_step("get_task_requirements")
-doa_algorithm.add_step("calculate_saliency")
-doa_algorithm.add_step("calculate_task_relevance")
-doa_algorithm.add_step("merge_maps")
-doa_algorithm.add_step("make_decision")
-doa_algorithm.add_step("execute_decision")
-
 #Define the optimization parameters for each algorithm
 caa_algorithm.set_parameter(universal_truth_validation, "optimize_for_accuracy", True)
 caa_algorithm.set_parameter(ntk_layers, "layer1_size", 1024)
