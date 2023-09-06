@@ -77,22 +77,6 @@ ANTK_Module:
       Function: "UpdateNTK"
       Algorithm: "if SelfAwareNeuralNetwork.has_changed(): UpdateNTK()"
 
-  Modules:
-    Dynamic_Decision_Making_Module:
-      Function: "OptimizeDecisionMaking"
-      Formal_Logic: "if MonteCarloTreeSearch.is_complete(): MonteCarloTreeSearch.execute_decision(MonteCarloTreeSearch.best_action)"
-  Optimizations:
-    DynamicNTKValidation:
-      Caching: True
-  Metrics:
-    QualityScoreFormula: "weighted_sum([Relevance, Feasibility, Innovativeness, Originality, Flexibility, Subtlety])"
-    ThoughtVoting:
-      FormalLogic: "argmax(QualityScore)"
-  AdaptiveMechanisms:
-    KernelUpdater:
-      Function: "UpdateNTK"
-      Algorithm: "if SelfAwareNeuralNetwork.has_changed(): UpdateNTK()"
-
   CreativeThoughtModule: 
   Objectives:
     Originality: "O(x)"
