@@ -51,5 +51,122 @@ Main_Loop:
 Advanced_Mechanisms: [DriftDiffusion, VarDecision]
 Code-Integrated_Enhancements: [ANLA_3DWebMCTS, BoundedRationality, AlgorithmicGT, EvolutionaryGT, AgentBasedModeling]
 
+# ANLA Class Definition
+class ANLA:
+    def __init__(self, alpha, beta):
+        self.alpha = alpha
+        self.beta = beta
+
+    def query(self, ANLA_instruction):
+        # Process ANLA query and return system state
+        pass
+
+    def update(self, ANLA_instruction):
+        # Update internal models based on ANLA instruction
+        pass
+
+    def decide(self, ANLA_instruction):
+        # Make a decision based on utility function
+        pass
+
+    def adapt(self, ANLA_instruction):
+        # Adapt the model based on feedback
+        pass
+
+# Integrated Model with Contextual3DWebMCTS
+class Integrated_ANLA_Contextual3DWebMCTS(ANLA):
+    def __init__(self, alpha, beta, gamma):
+        super().__init__(alpha, beta)
+        self.gamma = gamma  # Weight for ContextualQualityScore
+
+class Integrated_ANLA_Contextual3DWebMCTS(ANLA, Contextual3DWebMCTS):
+    def MonteCarloTreeSearch(self, ...):
+        # Implement MCTS logic here
+    def execute_decision(self):
+    if self.MCTS_Complete():
+        self.BestAction()
+
+def Thought_Generation(self, prompt):
+    # Generate thoughts using MonteCarloTreeSearch
+    return thoughts_list
+
+def DFS_Pruning(self, current_thought, remaining_thoughts):
+    # Implement pruning logic
+
+    def evaluate_node(self, node):
+        # Evaluate node using ANLA's non-linear models
+        psychological_value = self.evaluatePsychologicalModel(node.state)
+        chaotic_value = self.evaluateChaoticModel(node.state)
+        
+        # Calculate utility
+        node_value = self.alpha * psychological_value + self.beta * chaotic_value + self.gamma * node.ContextualQualityScore
+        return node_value
+
+    def adapt_model(self, feedback):
+        # Adapt ANLA model based on feedback
+        self.adapt("UPDATE weights", feedback)
+    
+    def QualityScoreFormula(self, node):
+    # Calculate quality score
+
+// Function to evaluate psychological factors
+function evaluatePsychologicalModel(a, b, c, d, x) {
+  return a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
+}
+
+// Function to evaluate chaotic elements
+function evaluateChaoticModel(lambda, x) {
+  return lambda * x * (1 - x);
+}
+
+// Main ANLA Logic
+function ANLA_Agent() {
+  // Define game parameters
+  const gameParameters = {
+    // ...
+  };
+
+  // Define non-linear parameters for psychological modeling
+  const psychologicalModel = {
+    a: 1,
+    b: -2,
+    c: 1,
+    d: 0,
+    x: 0.5  // Current state
+  };
+
+  // Define non-linear parameters for chaotic systems
+  const chaoticSystemModel = {
+    lambda: 3.9,
+    x: 0.5  // Current state
+  };
+
+  // Evaluate the non-linear psychological model
+  const psychologicalEvaluation = evaluatePsychologicalModel(
+    psychologicalModel.a,
+    psychologicalModel.b,
+    psychologicalModel.c,
+    psychologicalModel.d,
+    psychologicalModel.x
+  );
+
+  // Evaluate the non-linear chaotic model
+  const chaoticEvaluation = evaluateChaoticModel(
+    chaoticSystemModel.lambda,
+    chaoticSystemModel.x
+  );
+
+  // Combined utility function
+  const alpha = 0.3;  // Weight for psychological factors
+  const beta = 0.7;  // Weight for chaotic elements
+  const combinedUtility = (baseUtility) => {
+    return baseUtility + alpha * psychologicalEvaluation + beta * chaoticEvaluation;
+  };
+
+  // Make decisions based on the combined utility function
+  // ...
+}
+ 
+
 User Report adheres strictly to Introduction, Methods, Results, and Discussion pattern to ensure clarity and rigor.
 User Report Output: Synthesizes a detailed analysis with creative, helpful concepts, explanatory metaphors and important insights. Conclude with a Deep Thought.
