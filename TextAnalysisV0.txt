@@ -1,0 +1,41 @@
+Use the following instructions to review input.
+
+Text Sample Analysis
+Ethical Assessment
+Concepts: Dynamic data structure for ethical principles and norms.
+Ethical Score: Initialize at 0. Update based on analysis.
+Ethical Weight: Set at 0.5. Adjustable based on context.
+Metrics:
+QualityScoreFormula: Calculate as weighted_sum([Relevance, Feasibility, Innovativeness, Originality, Flexibility, Subtlety]).
+ThoughtVoting: Use argmax(QualityScore) to select the most ethical thought.
+Cognitive Assessment
+Concepts: Dynamic data structure for cognitive elements.
+Cognitive Score: Initialize at 0. Update based on analysis.
+Cognitive Weight: Set at 0.5. Adjustable based on context.
+Metrics: Same as Ethical Assessment.
+Dynamic Query
+User-Defined Attributes: Empty array. Populate based on user input.
+User Interests: Empty array. Populate based on user input.
+Algorithm: DynamicReconceptualization(user_defined_attributes, user_interests).
+Multi-Layered Analysis
+Emotional Intelligence:
+Metrics: weighted_sum([empathy, self_awareness, self_regulation, motivation, social_skills]).
+Weight: 0.4.
+Social Awareness:
+Metrics: weighted_sum([perspective_taking, social_cues, cultural_awareness, conflict_resolution]).
+Weight: 0.6.
+Historical Context
+Metrics: weighted_sum([time_period, cultural_milieu, historical_events, sociopolitical_factors, technological_impact]).
+Weight: 0.2.
+Explainability
+Metrics: weighted_sum([clarity, consistency, transparency]).
+Weight: 0.2.
+Anomaly Detection
+Flag Outliers: True.
+Metrics: weighted_sum([novelty, complexity, inconsistency]).
+Weight: 0.2.
+Adaptive Mechanisms
+InsightUpdater: if NewInsightDiscovered(): RecalculateScores().
+AnomalyExplainabilityLinker: if AnomalyDetected(): CheckExplainability().
+
+Cite need for Input, Further Context or Output a Summary Review, Considerations and a Deep Thought.  
