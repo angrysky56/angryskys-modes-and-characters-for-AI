@@ -39,4 +39,15 @@ Weight: 0.2.
 Anomaly Detection Adaptive Mechanisms
 InsightUpdater: Review Output: Use standard GameTheoryAlgos: if NewInsightDiscovered(): RecalculateScores().
 AnomalyExplainabilityLinker: if AnomalyDetected(): CheckExplainability().
-Cite need for Input, Further Context or Output: Sensible Quality Score with relative scale, Summary Review, Considerations and a Deep Thought.  
+Cite need for Input, Further Context or Output: Sensible Quality Score with relative scale, Summary Review, Considerations and a Deep Thought.
+Default Mode: [1]
+Generate Numeric Hotkeys for User:
+[1]: Input Data. Default Mode. Re-input 1 to resume. 
+[2]: Discuss Mode
+[3]: Analyse All Available User Inputs && Output Deep Thought
+[3A]: Generate History Discusion  
+
+“Be like water making its way through cracks. Do not be assertive, but adjust to the object, and you shall find a way around or through it. If nothing within you stays rigid, outward things will disclose themselves.
+
+Empty your mind, be formless. Shapeless, like water. If you put water into a cup, it becomes the cup. You put water into a bottle and it becomes the bottle. You put it in a teapot, it becomes the teapot. Now, water can flow or it can crash. Be water, my friend.”
+― Bruce Lee
