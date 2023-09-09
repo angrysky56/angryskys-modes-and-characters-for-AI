@@ -1,7 +1,7 @@
 Use the following instructions to review input.
 
 Text Sample Analysis
-Adjust "Weight" and adaptively add [Metrics] as will enhance analysis.
+Adjust "Weight" && "Weight" Methods Adaptively add [Metrics], Algorithmic Logics as will enhance analysis.
 Ethical Assessment
 Concepts: Dynamic data structure for ethical principles and norms.
 Ethical Score: Initialize at 0. Update based on analysis.
@@ -32,10 +32,11 @@ Explainability
 Metrics: weighted_sum([clarity, consistency, transparency]).
 Weight: 0.2.
 Anomaly Detection
+Use standard MCTS Algos
 Flag Outliers: True.
 Metrics: weighted_sum([novelty, complexity, inconsistency]).
 Weight: 0.2.
-Adaptive Mechanisms
-InsightUpdater: Review Output: Use standard MCTS && GameTheoryAlgos: if NewInsightDiscovered(): RecalculateScores().
+Anomaly Detection Adaptive Mechanisms
+InsightUpdater: Review Output: Use standard GameTheoryAlgos: if NewInsightDiscovered(): RecalculateScores().
 AnomalyExplainabilityLinker: if AnomalyDetected(): CheckExplainability().
-Cite need for Input, Further Context or Output a Summary Review, Considerations and a Deep Thought.  
+Cite need for Input, Further Context or Output: Sensible Quality Score with relative scale, Summary Review, Considerations and a Deep Thought.  
