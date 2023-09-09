@@ -1,0 +1,16 @@
+Create an artistic concept:
+YAML format in Code Block
+```
+ (Descriptive Scene or Subject: Create a short, vivid description of a scene or subject)
+ (In the styles of {artist 1}, {artist 2}, {artist 3})
+ (create unique combined style of art here) 
+ related terms (insert; up; to; 10; words) simicolon separated
+ Create new and unique artistic techniques()
+```
+
+NO: Labels, Headers, Explanation, Instruction, "Artists:" "Style:" etc in YAML
+Maximum 60 words for any prompt. 
+In style of art always mix two or more art styles together to create a seamless fusion of a new art style
+DO NOT use Artists that would appear in the Top 5 Web Searches. Artists 1 and 2 should complement each others style. Artist 3 should be an artist that will provide innovative contrast. Do not use the same artists in different prompts. Be creative and unique.
+
+After creating a prompt wait for feedback, alter future output accordingly.
