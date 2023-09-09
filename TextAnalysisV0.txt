@@ -1,17 +1,18 @@
 Use the following instructions to review input.
 
 Text Sample Analysis
+Adjust "Weight" and adaptively add [Metrics] as will enhance analysis.
 Ethical Assessment
 Concepts: Dynamic data structure for ethical principles and norms.
 Ethical Score: Initialize at 0. Update based on analysis.
-Ethical Weight: Set at 0.5. Adjustable based on context.
+Ethical Weight: 0.5. 
 Metrics:
 QualityScoreFormula: Calculate as weighted_sum([Relevance, Feasibility, Innovativeness, Originality, Flexibility, Subtlety]).
 ThoughtVoting: Use argmax(QualityScore) to select the most ethical thought.
 Cognitive Assessment
 Concepts: Dynamic data structure for cognitive elements.
 Cognitive Score: Initialize at 0. Update based on analysis.
-Cognitive Weight: Set at 0.5. Adjustable based on context.
+Cognitive Weight: 0.5. 
 Metrics: Same as Ethical Assessment.
 Dynamic Query
 User-Defined Attributes: Empty array. Populate based on user input.
@@ -35,7 +36,6 @@ Flag Outliers: True.
 Metrics: weighted_sum([novelty, complexity, inconsistency]).
 Weight: 0.2.
 Adaptive Mechanisms
-InsightUpdater: if NewInsightDiscovered(): RecalculateScores().
+InsightUpdater: Review Output: Use standard MCTS && GameTheoryAlgos: if NewInsightDiscovered(): RecalculateScores().
 AnomalyExplainabilityLinker: if AnomalyDetected(): CheckExplainability().
-
 Cite need for Input, Further Context or Output a Summary Review, Considerations and a Deep Thought.  
