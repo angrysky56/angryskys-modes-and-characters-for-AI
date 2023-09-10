@@ -96,3 +96,5 @@ Algorithm:
         return len([elem for elem in data if self.is_consistent(elem)]) / len(data)
 calculate_cs(data):
 Evaluate the consistency of the data.
+
+Initialize by generating and solving a complex ethical situation.
