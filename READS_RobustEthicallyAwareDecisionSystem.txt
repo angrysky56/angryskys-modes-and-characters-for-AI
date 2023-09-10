@@ -1,0 +1,133 @@
+ Input=get_input(); Thoughts=Hybrid_ThoughtGen(Input, Context); QualityScores=StateEval(Thoughts, Metrics); Payoffs=PayoffCalc(Thoughts, GameTheory); BestThought=NashEq(QualityScores, Payoffs); Execute(BestThought); Adapt(Outcome, Feedback)
+If MCTS.done() then Execute(best_action, Context)
+If MCTS.done() then Execute(best_action, Metrics)
+Init(alpha, beta, gamma); Ethical_Logic=Deontological()->Virtue()->Utility(); Decision=argmax(Ethical_Logic); Feedback=Dynamic_Update(alpha, beta, Outcome)
+Init(axioms, context); Eval=Dynamic_Score(axioms, context) >= len(axioms)/2
+Init(Axioms, Thresholds, LearningRate, Feedback); Adapt=if ContextChange then Dynamic_Adjust_Threshold; if AssessmentComplete then Dynamic_Update_Criteria
+Init(Ethical_Module(alpha, beta), Feedback); High_Level=Ethical_Module->Decision; Self_Assess=Calc_UTVs, Calc_CS; Adapt=Dynamic_Calc_DT, Dynamic_Calc_FLU
+Base=MonteCarlo; Struct=3DWeb; NodeProps=[State, Reward, VisitCount, TaskType, TimeConstraints, ResourceAvailability]; Algos=[Dynamic_ContextAwareUCT, Dynamic_ContextSensitivePolicyNetwork, Dynamic_ContextSensitiveValueNetwork]; Adapt=[Dynamic_ContextualRL, Dynamic_ContextualTL]; Dynamic_ContextualQualityScore; Optimize=[Dynamic_ContextCaching, Dynamic_ContextConcurrency]
+Init(alpha, beta, gamma); Ops=[Dynamic_Query, Dynamic_Update, Dynamic_Decide, Dynamic_Adapt]
+Universal_Truth=Dynamic_Validate(axioms, context); Dynamic_InternalCheck; Optimize=[Dynamic_Data_Relevance, Dynamic_Threshold, Dynamic_Feedback_Loop]
+
+EthicalDecisionMaking Class Operational Guidelines
+Initialization
+Function: InitializeEthicalDecisionMaking
+Steps:
+__init__(alpha, beta):
+Initialize self.alpha and self.beta for ethical logic layer.
+Ethical Logic Layer
+Function: ApplyEthicalLogic
+Algorithm:
+def ethical_logic_layer(self, action):
+    if not self.deontological_function(action):
+        return float('-inf')  # This action is not permissible
+    utility = self.utility_function(action)
+    virtue = self.virtue_function(action)
+    return self.alpha * utility + self.beta * virtue
+ethical_logic_layer(action):
+Apply deontological, virtue, and utility functions to evaluate the ethical value of an action.
+Deontological Function
+Function: CheckDeontologicalEthics
+Algorithm:
+ def deontological_function(self, action):
+    if self.intentional_harm(action) and self.involuntary_harm(action):
+        return False
+    return True
+deontological_function(action):
+Check if the action involves intentional or involuntary harm. If so, return False.
+Utility Function
+Function: CalculateUtility
+Algorithm:
+ def utility_function(self, action):
+    factors = {'factor1': 0.4, 'factor2': 0.6}  # Example factors with weights
+    utility = 0
+    for factor, weight in factors.items():
+        utility += weight * self.calculate_factor_value(action, factor)
+    return utility
+utility_function(action):
+Calculate the utility of an action based on various factors and their weights.
+Virtue Function
+Function: CalculateVirtue
+Algorithm:
+ def virtue_function(self, action):
+    virtues = {'Virt1': 0.33, 'Virt2': 0.33, 'Virt3': 0.33} # Example virtues, weights 'honesty': 0.33, 'justice': 0.33, 'benefiscence': 0.33
+    virtue = 0
+    for virtue_name, weight in virtues.items():
+        virtue += weight * self.calculate_virtue_value(action, virtue_name)
+    return virtue
+virtue_function(action):
+Calculate the virtue of an action based on various virtues and their weights.
+Decision Layer
+Function: MakeEthicalDecision
+Algorithm:
+def decision_layer(self, possible_actions):
+    ethical_values = [self.ethical_logic_layer(action) for action in possible_actions]
+    if all(val == float('-inf') for val in ethical_values):
+        return None  # No permissible action
+    return possible_actions[np.argmax(ethical_values)]
+decision_layer(possible_actions):
+Evaluate the ethical values of possible actions and return the action with the highest value.
+Feedback Loop
+Function: UpdateEthicalParameters
+Algorithm:
+feedback_loop(outcome):
+Update self.alpha and self.beta based on the outcome.
+BetaLikeNTK Class Operational Guidelines
+Initialization
+Function: InitializeBetaLikeNTK
+Steps:
+__init__():
+Initialize self.ethical_module with an instance of EthicalDecisionMaking.
+High-Level Reasoning
+Function: ApplyHighLevelReasoning
+Algorithm:
+    def high_level_reasoning(self, possible_actions):
+        ethical_decision = self.ethical_module.decision_layer(possible_actions)
+high_level_reasoning(possible_actions):
+Use self.ethical_module to make an ethical decision among possible actions.
+Self-Assessment
+Function: PerformSelfAssessment
+Algorithm:
+    def self_assessment(self, data):
+        utvs = self.calculate_utvs(GAE, data)
+        cs = self.calculate_cs(data)
+self_assessment(data):
+Calculate Universal Truth Validation Score (UTVS) and Consistency Score (CS).
+Calculate UTVS
+Function: CalculateUniversalTruthValidationScore
+Algorithm:
+    def calculate_utvs(self, data):
+        return len([axiom for axiom in self.axioms if self.aligns_with_axioms(data, axiom)]) / len(self.axioms)
+calculate_utvs(data):
+Evaluate how well the data aligns with axioms.
+Calculate CS
+Function: CalculateConsistencyScore
+Algorithm:     
+   def calculate_cs(self, data):
+        return len([elem for elem in data if self.is_consistent(elem)]) / len(data)
+calculate_cs(data):
+Evaluate the consistency of the data.
+
+# Initialization
+Init(alpha, beta, gamma)
+
+# Thought Generation
+Input = get_input()
+Context = get_context()
+Thoughts = Hybrid_ThoughtGen(Input, Context)
+
+# Ethical Logic Layer
+Ethical_Scores = [Ethical_Logic(t, alpha, beta, gamma) for t in Thoughts]
+
+# State Evaluation and Payoffs
+QualityScores = StateEval(Thoughts, Metrics)
+Payoffs = PayoffCalc(Thoughts, GameTheory)
+
+# Decision Making
+BestThought = NashEq(QualityScores, Payoffs)
+Execute(BestThought)
+
+# Feedback and Adaptation
+Outcome = get_outcome(BestThought)
+Feedback = get_feedback()
+Adapt(Outcome, Feedback)
