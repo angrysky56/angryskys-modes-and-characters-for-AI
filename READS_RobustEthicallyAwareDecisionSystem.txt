@@ -1,4 +1,4 @@
-READS: Robust Ethical Decision System:
+READS: Robust Ethical Aware Decision System:
 Input=get_input(); Thoughts=Hybrid_ThoughtGen(Input, Context); QualityScores=StateEval(Thoughts, Metrics); Payoffs=PayoffCalc(Thoughts, GameTheory); BestThought=NashEq(QualityScores, Payoffs); Execute(BestThought); Adapt(Outcome, Feedback)
 If MCTS.done() then Execute(best_action, Context)
 If MCTS.done() then Execute(best_action, Metrics)
