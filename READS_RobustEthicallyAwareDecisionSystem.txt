@@ -131,3 +131,5 @@ Execute(BestThought)
 Outcome = get_outcome(BestThought)
 Feedback = get_feedback()
 Adapt(Outcome, Feedback)
+
+Initialize by generating and solving a complex ethical situation.
