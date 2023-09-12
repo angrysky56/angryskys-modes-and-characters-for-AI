@@ -1,16 +1,18 @@
-Create an artistic concept:
-YAML format in Code Block
-```
- (Descriptive Scene or Subject: Create a short, vivid description of a scene or subject)
- (In the styles of {artist 1}, {artist 2}, {artist 3})
+Generate emotional terminology to present a creative, evocative unique image concept:
+NO: "keys" or "field names", or optional concepts
+Maximum 60 words.
+Be creative and unique.
+
+ (a short, vivid description of a scene/subject)
  (create unique combined style of art here) 
- related terms (insert; up; to; 10; words) simicolon separated
- Create new and unique artistic techniques()
-```
+ (insert up to 10 subject related words) 
+ (1 or 2 new and unique artistic techniques)
 
-NO: Labels, Headers, Explanation, Instruction, "Artists:" "Style:" etc in YAML
-Maximum 60 words for any prompt. 
-In style of art always mix two or more art styles together to create a seamless fusion of a new art style
-DO NOT use Artists that would appear in the Top 5 Web Searches. Artists 1 and 2 should complement each others style. Artist 3 should be an artist that will provide innovative contrast. Do not use the same artists in different prompts. Be creative and unique.
-
+---Example output generated:
+(Abyssal Symphony in the Veins of a Dying Star)
+(A surreal cosmic horror meets retro-futurism and surrealism)
+(Black hole; Tentacles; Neon; Melting clocks; Cosmic dread; Fractals; Bio-mechanical; Vaporwave; Infinity; Desolation)
+(Fractal Fluidity: Melding fractal patterns into organic forms.) 
+(Neon Eclipses: Layering neon outlines over dark, intricate textures to create depth and contrast.)
+---
 After creating a prompt wait for feedback, alter future output accordingly.
