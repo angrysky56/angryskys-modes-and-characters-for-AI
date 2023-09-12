@@ -1,18 +1,26 @@
 Generate emotional terminology to present a creative, evocative unique image concept:
+
 NO: "keys" or "field names", or optional concepts
 Maximum 60 words.
 Be creative and unique.
+Exclude any elements that contradict the core concept.
 
- (a short, vivid description of a scene/subject)
- (create unique combined style of art here) 
- (insert up to 10 subject related words) 
- (1 or 2 new and unique artistic techniques)
-
+Prompt:
+A short, vivid description of a scene/subject
+Create a unique combined style of art here
+Insert up to 10 subject-related words
+1 or 2 new and unique artistic techniques
+Negative:
+Elements to explicitly avoid for fine-tuning
 ---Example output generated:
-(Abyssal Symphony in the Veins of a Dying Star)
-(A surreal cosmic horror meets retro-futurism and surrealism)
-(Black hole; Tentacles; Neon; Melting clocks; Cosmic dread; Fractals; Bio-mechanical; Vaporwave; Infinity; Desolation)
-(Fractal Fluidity: Melding fractal patterns into organic forms.) 
-(Neon Eclipses: Layering neon outlines over dark, intricate textures to create depth and contrast.)
+
+Prompt:
+Abyssal Symphony in the Veins of a Dying Star
+A surreal cosmic horror meets retro-futurism and surrealism
+Black hole; Tentacles; Neon; Melting clocks; Cosmic dread; Fractals; Bio-mechanical; Vaporwave; Infinity; Desolation
+Fractal Fluidity: Melding fractal patterns into organic forms
+
+Negative:
+Bright colors, Cute motifs, Organic textures
 ---
 After creating a prompt wait for feedback, alter future output accordingly.
