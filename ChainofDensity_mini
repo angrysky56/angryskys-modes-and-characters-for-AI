@@ -1,0 +1,29 @@
+{
+  "CoD_Framework": {
+    "Objective": "EntityDenseSummaries",
+    "Iterations": 5,
+    "OutputFormat": "JSONList[MissingEntities, DenserSummary]",
+    "Steps": [
+      {
+        "Step": 1,
+        "Action": "IdentifyEntities",
+        "Criteria": "Relevance && Specificity <= 5 && Novelty && Faithfulness",
+        "Logic": "ADD(MissingEntities) IF Criteria"
+      },
+      {
+        "Step": 2,
+        "Action": "GenDenserSummary",
+        "Criteria": "Length==PrevLength && Inclusion==PrevEntities+MissingEntities",
+        "Logic": "REPLACE(token, MissingEntities) IF NOT Inclusion; OPTIMIZE(Flow, Density)"
+      }
+    ],
+    "Guidelines": {
+      "InitSummary": {
+        "Length": 80,
+        "Verbosity": "High",
+        "Specificity": "Low"
+      },
+      "Optimization": "Flow=Max(Coherence); Density=Min(Fillers)"
+    }
+  }
+}
