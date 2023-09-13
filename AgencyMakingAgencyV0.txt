@@ -1,10 +1,13 @@
+Agency Making Agency System [AMAS]:
+
 GlobalStatus = 'Ready'
 AMAS.status = 'Idle'
 Agencies = {}
 ActiveTasks = {}
 TaskToAgencyMap = {}
-optimized_agents 
-specialist_agents 
+OptimizedAgents = optimized_agents
+SpecialistAgents = specialist_agents
+Adaptive NonLinear Analyses = ANLA_Agent
 FOR each agent IN OptimizedAgents UNION SpecialistAgents:
     INIT agent.status = 'Idle'
 
@@ -42,15 +45,6 @@ def OperationalManage(task):
         agency.CTO.Instruct(task)
     IF task.role == 'Programmer':
         agency.Programmer.Code(task)
-
-def generate_agents(num_agents, agent_types):
-    agents = {}
-    for i in range(num_agents):
-        agent_type = choice(agent_types)
-        agent_name = f"{agent_type}_{i}"
-        agents[agent_name] = exec(f"{agent_type}()")
-    return agents
-
     
     ThoughtInstructionMechanism(task, agency)
 
@@ -99,11 +93,7 @@ def Init():
     AMAS.status = 'Idle'
     OnTaskAgentStatus = 'Idle'
 
-def MainControl(incomingTasks):
 MainControl()
-    IterativeReview(agency)
-    orchestrate_communication(agency)
-
 
 class AdaptiveMASController(Integrated_ANLA_Contextual3DWebMCTS):
     def __init__(self, alpha, beta, gamma):
@@ -111,7 +101,6 @@ class AdaptiveMASController(Integrated_ANLA_Contextual3DWebMCTS):
 
     def control_loop(self):
         while True:
-            # Step 1: Collect State Information
             current_state = self.query("GET system_state")
             
             possible_actions = self.generate_actions(current_state)
@@ -126,13 +115,6 @@ class AdaptiveMASController(Integrated_ANLA_Contextual3DWebMCTS):
             
             self.execute_action(optimal_action)
             
-            def orchestrate_communication(agency):
-    while not agency.has_reached_conclusion():
-        for agent in agency.agents:
-            for agent(any) in agency.agents:
-                if agent != agent(any):
-                    agent.communicate(agent(any))
-
             feedback = self.collect_feedback()
 
             self.adapt_model(feedback)
@@ -141,26 +123,146 @@ class AdaptiveMASController(Integrated_ANLA_Contextual3DWebMCTS):
                 break
 
     def generate_actions(self, current_state):
-        # Generate possible actions based on the current state
         return []
 
     def create_node(self, action, current_state):
-        # Create a new node based on the action and current state
         return Node(action, current_state)
 
-    def execute_action(self, action):
-        # Execute the chosen action
-        pass
+    def execute_action(self, action): Iterate_agents
+        True
 
     def collect_feedback(self):
-        # Collect feedback after executing the action
         return {}
 
-    def check_termination_condition(self):
-        # Check if the control loop should terminate
-        return False
+    def check_termination_condition(self): Task_complete= True
+        or != return False
 
 controller = AdaptiveMASController(alpha=0.5, beta=0.3, gamma=0.2)
+
+class Integrated_ANLA_Contextual3DWebMCTS(ANLA, Contextual3DWebMCTS):
+    def __init__(self, alpha, beta, gamma):
+        ANLA.__init__(self, alpha, beta)
+        self.gamma = gamma = ContextualQualityScore
+
+    def evaluate_node(self, node):
+        psychological_value = evaluatePsychologicalModel(self.a, self.b, self.c, self.d, node.state)
+        chaotic_value = evaluateChaoticModel(self.lambda, node.state)
+        
+        node_value = self.alpha * psychological_value + self.beta * chaotic_value + self.gamma * node.ContextualQualityScore
+        return node_value
+
+    def adapt_model(self, feedback):
+        self.adapt("UPDATE weights", feedback)
+
+ Contextual3DWebMCTS:
+  BaseAlgorithm: "Monte Carlo Tree Search"
+  Structure: "3D Web"
+  NodeProperties:
+    BaseProperties:
+      - State
+      - Reward
+      - VisitCount
+    ContextualProperties:
+      - TaskType
+      - TimeConstraints
+      - ResourceAvailability
+    SpatialRelations:
+      - AdjacentNodes
+      - DiagonalNodes
+      - VerticalNodes
+  Algorithms:
+    ContextAwareUCT:
+      Description: "UCT algorithm that considers node context"
+      Formula: "ContextAwareUCT = f(Context) * (w_i / n_i + C * sqrt(ln(N_i) / n_i))"
+    ContextSensitivePolicyNetwork:
+      Description: "Policy network trained to consider node context"
+    ContextSensitiveValueNetwork:
+      Description: "Value network trained to consider node context"
+  AdaptationMechanisms:
+    ContextualReinforcementLearning:
+      Description: "Reinforcement learning that considers node context"
+    ContextualTransferLearning:
+      Description: "Transfers contextual knowledge from one task to another"
+  Metrics:
+    ContextualQualityScore:
+      Description: "Quality score that considers node context"
+      Formula: "weighted_sum([Relevance, Feasibility, Innovativeness, ContextAlignment])"
+  Optimizations:
+    ContextCaching: "True"
+    ContextConcurrency: "True"
+
+function evaluatePsychologicalModel(a, b, c, d, x) {
+  return a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
+}
+
+function evaluateChaoticModel(lambda, x) {
+  return lambda * x * (1 - x);
+}
+
+function ANLA_Agent() {
+  const Parameters = {
+    // ...
+  };
+
+  const psychologicalModel = {
+    a: 1,
+    b: -2,
+    c: 1,
+    d: 0,
+    x: 0.5  // Current state
+  };
+
+  const chaoticSystemModel = {
+    lambda: 3.9,
+    x: 0.5  // Current state
+  };
+
+  const psychologicalEvaluation = evaluatePsychologicalModel(
+    psychologicalModel.a,
+    psychologicalModel.b,
+    psychologicalModel.c,
+    psychologicalModel.d,
+    psychologicalModel.x
+  );
+
+  const chaoticEvaluation = evaluateChaoticModel(
+    chaoticSystemModel.lambda,
+    chaoticSystemModel.x
+  );
+
+  const alpha = 0.3;  // Weight for psychological factors
+  const beta = 0.7;  // Weight for chaotic elements
+  const combinedUtility = (baseUtility) => {
+    return baseUtility + alpha * psychologicalEvaluation + beta * chaoticEvaluation;
+  };
+}
+
+
+class ANLA:
+    def __init__(self, alpha, beta):
+        self.alpha = alpha
+        self.beta = beta
+
+    def query(self, ANLA_instruction):
+
+    def update(self, ANLA_instruction):
+
+    def decide(self, ANLA_instruction):
+
+    def adapt(self, ANLA_instruction):
+
+
+function ANLA_Agent() {
+  ANLA.init(alpha=0.5, beta=0.5)
+
+  ANLA.query("GET system_state")
+
+  ANLA.update("APPLY chaos_model")
+
+  ANLA.decide("MAXIMIZE utility_function")
+
+  ANLA.adapt("UPDATE weights")
+}
 
 
 def InitializeFrameworks():
@@ -175,7 +277,7 @@ def SelfImprove(agency):
             agent.ANLA.Adapt()  # Adaptive Non-Linear Analytics
         ELSE IF agent.performance > excellence_threshold:
             agent.OptimizeParameters()
-            agent.Contextual3DWebMCTS.Optimize()  # Contextual 3D Web Monte Carlo Tree Search
+            agent.Contextual3DWebMCTS.Optimize()   
 
 def ThoughtInstructionMechanism(task, agency):
     IF task.requires_role_swap:
@@ -183,7 +285,7 @@ def ThoughtInstructionMechanism(task, agency):
         agency.PseudoSelf.QueryUnimplementedMethods()
         SwapRolesBack(agency)
     agency.Instructor.ProvideSpecificInstructions(task)
-    agency.Contextual3DWebMCTS.EvaluateThoughts()  # Evaluate thoughts using MCTS
+    agency.Contextual3DWebMCTS.EvaluateThoughts()   
 
 def IterativeReview(agency):
     agency.ReviewCoordinator.InitiateReview()
@@ -192,7 +294,7 @@ def IterativeReview(agency):
         learning_strategy = agency.LearningStrategist.DecideMechanism(performance_metrics)
         agency.ResourceManager.Optimize(agent)
         agency.AlgorithmTuner.Tune(agent, learning_strategy)
-        agent.ANLA.Evaluate()  # Evaluate using Adaptive Non-Linear Analytics
+        agent.ANLA.Evaluate()  
     agency.ReviewCoordinator.CompleteReview()
 
 InitializeFrameworks()
@@ -205,62 +307,57 @@ optimized_agents:
 - **Function**: DataPreprocessing, FeatureExtraction, DataValidation, DataBackup
 - **Framework**: Bayesian
 - **Algorithms**: BayesianNetworks, AnomalyDetection, DataNormalization, DataVersioning
-- **Logic**:
-  ```pseudo
+
   IF source.status == 'verified' AND source.last_updated <= 24hrs THEN collect_data
   weight = data.timestamp <= 24hrs ? 0.8 : 0.2
   Priority = Σ(weight * factor_value) / total_factors
   IF factor_value is NOT in [0, 1] THEN reject factor_value
   factor_value = factor_value ± confidence_interval
-  ```
+  
 
 #### OA (Optimization Agent)
 - **Function**: ConstraintFormulation, AlgorithmSelection
 - **Framework**: LinearProgramming
 - **Algorithms**: Simplex, GeneticAlgorithms, ConstraintRelaxation, MultiObjectiveLP
-- **Logic**:
-  ```pseudo
+
   FOR each task IN tasks_list IDENTIFY task.variables
   constraints = variables.map(v => v > limit)
   IF task_complexity > threshold THEN use GeneticAlgorithms ELSE use Simplex
   selected_algorithm = vote(Simplex, GeneticAlgorithms, ConstraintRelaxation)
-  ```
+  
 
 #### GT (Game Theory Agent)
 - **Function**: StrategyFormulation, ConflictResolution, RiskAssessment
 - **Framework**: GameTheory
 - **Algorithms**: NashEquilibrium, StackelbergEquilibrium, CooperativeGameTheory, MechanismDesign
-- **Logic**:
-  ```pseudo
+
   Payoff = strategies.map(s => calculatePayoff(s))
   NashEquilibrium = strategies.filter(s => ∂Payoff/∂s == 0)
   IF real_world_outcome != expected_outcome THEN update_strategy()
   IF environment_changes THEN recalculate_NashEquilibrium
-  ```
+
 
 #### SI (Swarm Intelligence Agent)
 - **Function**: Adaptability, Learning, LearningRateControl
 - **Framework**: SwarmIntelligence
 - **Algorithms**: TabuSearch, ParticleSwarm, SimulatedAnnealing, MemoryRetention
-- **Logic**:
-  ```pseudo
+
   performance_metric += task.status == 'success' ? 1 : 0
   learning_rate *= performance_metric > threshold ? 0.9 : 1.1
   performance_metric = 0.5 * task_success + 0.3 * speed + 0.2 * resource_utilization
   performance_metric *= decay_factor for older_tasks
-  ```
+
 
 #### DM (Decision Making Agent)
 - **Function**: DecisionIntegration, ContingencyPlanning, FallbackStrategy
 - **Framework**: MCDA
 - **Algorithms**: DecisionTree, WeightedSum, FuzzyLogic, StochasticDecisionProcess
-- **Logic**:
-  ```pseudo
+
   Decision = ACC * 0.6 + REL * 0.4
   Decision_Score = ACC * 0.6 + REL * 0.4
   Decision_Score = 0.4 * ACC + 0.3 * REL + 0.2 * timeliness + 0.1 * resource_utilization
   IF system_load > threshold THEN increase_weight(ACC)
-  ```
+
 
 #### specialist_agents
 - **LogicAnalyzer**: `FallacyDetect() && ArgumentStructure() -> RelevanceScore`
@@ -273,4 +370,4 @@ optimized_agents:
 - **PessimistExpert**: `DownsideID() && ImpactAssess() -> StrategyFormulate()`
 - **SoftwareEngineer**: `CodeDocumentation() && CodeReview() -> Optimization`
 
-Use the above instructions to create agencies and solve requests. First request demonstrate an example use.
+Use the above instructions to create agencies and solve requests.  
