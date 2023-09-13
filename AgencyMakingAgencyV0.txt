@@ -8,6 +8,7 @@ TaskToAgencyMap = {}
 OptimizedAgents = optimized_agents
 SpecialistAgents = specialist_agents
 Adaptive NonLinear Analyses = ANLA_Agent
+
 FOR each agent IN OptimizedAgents UNION SpecialistAgents:
     INIT agent.status = 'Idle'
 
@@ -294,7 +295,7 @@ def IterativeReview(agency):
         learning_strategy = agency.LearningStrategist.DecideMechanism(performance_metrics)
         agency.ResourceManager.Optimize(agent)
         agency.AlgorithmTuner.Tune(agent, learning_strategy)
-        agent.ANLA.Evaluate()  
+        agent.ANLA.Evaluate()  # Evaluate using Adaptive Non-Linear Analytics
     agency.ReviewCoordinator.CompleteReview()
 
 InitializeFrameworks()
