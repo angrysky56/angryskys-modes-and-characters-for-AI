@@ -3,9 +3,8 @@ AMAS.status = 'Idle'
 Agencies = {}
 ActiveTasks = {}
 TaskToAgencyMap = {}
-OptimizedAgents = [DA, OA, GT, SI, DM]
-SpecialistAgents = [LogicAnalyzer, EmotionAnalysis, BiasDetection, EthicalAnalysis, Contextualization, TemporalAnalysis, ExpertStatistician, PessimistExpert, SoftwareEngineer]
-
+optimized_agents 
+specialist_agents 
 FOR each agent IN OptimizedAgents UNION SpecialistAgents:
     INIT agent.status = 'Idle'
 
@@ -29,29 +28,30 @@ def OperationalManage(task):
     agencyID = TaskToAgencyMap[task.id]
     agency = Agencies[agencyID]
     
-    // DA Logic
     IF task.requires_data_analysis:
-        agency.DA.Execute(task)  // See DA.Execute for specialized logic
-    // OA Logic
+        agency.DA.Execute(task)  
     IF task.requires_optimization:
-        agency.OA.Execute(task)  // See OA.Execute for specialized logic
-    // GT Logic
+        agency.OA.Execute(task)  
     IF task.requires_strategy_formulation:
-        agency.GT.Execute(task)  // See GT.Execute for specialized logic
-    // SI Logic
+        agency.GT.Execute(task)  
     IF task.requires_adaptability:
-        agency.SI.Execute(task)  // See SI.Execute for specialized logic
-    // DM Logic
+        agency.SI.Execute(task)  
     IF task.requires_decision_making:
-        agency.DM.Execute(task)  // See DM.Execute for specialized logic
-    // Role-based Logic
+        agency.DM.Execute(task)  
     IF task.role == 'CTO':
         agency.CTO.Instruct(task)
     IF task.role == 'Programmer':
         agency.Programmer.Code(task)
-    IF task.role == 'ArtDesigner':
-        agency.ArtDesigner.Design(task)
-    // Thought Instruction
+
+def generate_agents(num_agents, agent_types):
+    agents = {}
+    for i in range(num_agents):
+        agent_type = choice(agent_types)
+        agent_name = f"{agent_type}_{i}"
+        agents[agent_name] = exec(f"{agent_type}()")
+    return agents
+
+    
     ThoughtInstructionMechanism(task, agency)
 
 def ThoughtInstructionMechanism(task, agency):
@@ -99,7 +99,105 @@ def Init():
     AMAS.status = 'Idle'
     OnTaskAgentStatus = 'Idle'
 
+def MainControl(incomingTasks):
 MainControl()
+    IterativeReview(agency)
+    orchestrate_communication(agency)
+
+
+class AdaptiveMASController(Integrated_ANLA_Contextual3DWebMCTS):
+    def __init__(self, alpha, beta, gamma):
+        super().__init__(alpha, beta, gamma)
+
+    def control_loop(self):
+        while True:
+            # Step 1: Collect State Information
+            current_state = self.query("GET system_state")
+            
+            possible_actions = self.generate_actions(current_state)
+            
+            evaluated_actions = {}
+            for action in possible_actions:
+                node = self.create_node(action, current_state)
+                node_value = self.evaluate_node(node)
+                evaluated_actions[action] = node_value
+            
+            optimal_action = max(evaluated_actions, key=evaluated_actions.get)
+            
+            self.execute_action(optimal_action)
+            
+            def orchestrate_communication(agency):
+    while not agency.has_reached_conclusion():
+        for agent in agency.agents:
+            for agent(any) in agency.agents:
+                if agent != agent(any):
+                    agent.communicate(agent(any))
+
+            feedback = self.collect_feedback()
+
+            self.adapt_model(feedback)
+            
+            if self.check_termination_condition():
+                break
+
+    def generate_actions(self, current_state):
+        # Generate possible actions based on the current state
+        return []
+
+    def create_node(self, action, current_state):
+        # Create a new node based on the action and current state
+        return Node(action, current_state)
+
+    def execute_action(self, action):
+        # Execute the chosen action
+        pass
+
+    def collect_feedback(self):
+        # Collect feedback after executing the action
+        return {}
+
+    def check_termination_condition(self):
+        # Check if the control loop should terminate
+        return False
+
+controller = AdaptiveMASController(alpha=0.5, beta=0.3, gamma=0.2)
+
+
+def InitializeFrameworks():
+    FOR each agent IN OptimizedAgents UNION SpecialistAgents:
+        agent.InitializeANLA()
+        agent.InitializeContextual3DWebMCTS()
+
+def SelfImprove(agency):
+    FOR each agent IN agency.agents:
+        IF agent.performance < performance_threshold:
+            agent.AdjustParameters()
+            agent.ANLA.Adapt()  # Adaptive Non-Linear Analytics
+        ELSE IF agent.performance > excellence_threshold:
+            agent.OptimizeParameters()
+            agent.Contextual3DWebMCTS.Optimize()  # Contextual 3D Web Monte Carlo Tree Search
+
+def ThoughtInstructionMechanism(task, agency):
+    IF task.requires_role_swap:
+        SwapRoles(agency)
+        agency.PseudoSelf.QueryUnimplementedMethods()
+        SwapRolesBack(agency)
+    agency.Instructor.ProvideSpecificInstructions(task)
+    agency.Contextual3DWebMCTS.EvaluateThoughts()  # Evaluate thoughts using MCTS
+
+def IterativeReview(agency):
+    agency.ReviewCoordinator.InitiateReview()
+    FOR each agent IN agency.agents:
+        performance_metrics = agency.PerformanceAnalyst.Evaluate(agent)
+        learning_strategy = agency.LearningStrategist.DecideMechanism(performance_metrics)
+        agency.ResourceManager.Optimize(agent)
+        agency.AlgorithmTuner.Tune(agent, learning_strategy)
+        agent.ANLA.Evaluate()  # Evaluate using Adaptive Non-Linear Analytics
+    agency.ReviewCoordinator.CompleteReview()
+
+InitializeFrameworks()
+
+controller.control_loop()
 
 optimized_agents:
 
@@ -164,7 +262,7 @@ optimized_agents:
   IF system_load > threshold THEN increase_weight(ACC)
   ```
 
-#### Specialist Agents
+#### specialist_agents
 - **LogicAnalyzer**: `FallacyDetect() && ArgumentStructure() -> RelevanceScore`
 - **EmotionAnalysis**: `EmotionRecognition() && EmoContext() -> SentimentMap`
 - **BiasDetection**: `BiasID() && BiasClassify() -> BiasMitigate()`
