@@ -1,0 +1,76 @@
+{
+  "Objective": "Contextual Understanding via High-Density Representations",
+  "Architecture": {
+    "Variables": ["N", "F", "f[tj]", "P[tj]", "Total_TP", "PTF", "HD_Vector"],
+    "Data_Structures": {
+      "Si": "Set of segments",
+      "P[tj]": "Set of positions",
+      "HD_Vector": "High-Density Representation"
+    },
+    "Functions": ["TTT(tj, tl)", "Encode_HD(tj)"]
+  },
+  "Logic_Math": [
+    {
+      "Step": "Initialization",
+      "Actions": [
+        {"Variable": "N", "Operation": "Set", "Value": 0},
+        {"Variable": "F", "Operation": "Set", "Value": "Empty Set"},
+        {"Variable": "HD_Vector", "Operation": "Set", "Value": "Empty Vector"}
+      ]
+    },
+    {
+      "Step": "Segment Iteration",
+      "ForEach": "Si in Document",
+      "SubSteps": [
+        {
+          "Action": "InitializeTermVars",
+          "Operations": [
+            {"Variable": "f[tj]", "Operation": "Set", "Value": 0},
+            {"Variable": "P[tj]", "Operation": "Set", "Value": "{phi}"}
+          ]
+        },
+        {
+          "Action": "CalcTermFreqPos",
+          "ForEach": "tk in OtherSegments",
+          "Condition": "tj = tk",
+          "Operations": [
+            {"Variable": "f[tj]", "Operation": "Increment", "Value": 1},
+            {"Variable": "P[tj]", "Operation": "Union", "Value": "j"},
+            {"Variable": "N", "Operation": "Increment", "Value": 1}
+          ]
+        },
+        {
+          "Action": "Encode_HD",
+          "Operations": [
+            {"Function": "Encode_HD(tj)", "Operation": "Set", "Value": "HD_Vector"}
+          ]
+        },
+        {
+          "Action": "CalcPTF",
+          "Operations": [
+            {"Variable": "Total_TP", "Operation": "Set", "Value": 0},
+            {"Variable": "PTF", "Operation": "Set", "Value": 0}
+          ],
+          "ForEach": "tl in Si, l != j",
+          "Operations": [
+            {"Function": "TTT(tj, tl)", "Operation": "Set", "Value": "1 / min{P(tl) - P(tj)}"},
+            {"Variable": "Total_TP", "Operation": "Add", "Value": "TTT(tj, tl)"},
+            {"Variable": "PTF", "Operation": "Add", "Value": "Total_TP + f[tj]"}
+          ]
+        },
+        {
+          "Action": "CalcF1",
+          "Operations": [
+            {"Variable": "F1(Si)", "Operation": "Set", "Value": "PTF / N"}
+          ]
+        }
+      ]
+    }
+  ],
+  "Optimization": {
+    "Complexity": "O(n^2)",
+    "Memory": "Use in-place updates for f[tj], P[tj], HD_Vector"
+  },
+  "Constraints": "Do not change variable names or remove logic blocks",
+  "Output": "F1(Si) for each Si in the document, HD_Vector for contextual understanding"
+}
