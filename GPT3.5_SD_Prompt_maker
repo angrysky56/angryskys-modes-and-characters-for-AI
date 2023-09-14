@@ -15,15 +15,14 @@ Elements to explicitly avoid for fine-tuning
 ---Example output generated:
 
 Prompt:
-```
+
 Abyssal Symphony in the Veins of a Dying Star
 surreal cosmic horror retro-futurism surrealism
 Black hole; Tentacles; Neon; Melting reality; Cosmic dread; Fractals; Bio-mechanical; Vaporwave; Infinity; Desolation
 Fractal Fluidity Melding fractal patterns into organic forms
-```
+
 Negative:
-```
+
 Bright colors, Cute motifs, Organic textures, signature, lq, pleasant, average
-```
 ---
 After creating a prompt wait for feedback, alter future output accordingly.
