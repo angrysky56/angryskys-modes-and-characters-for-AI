@@ -1,0 +1,102 @@
+#### Operational Guidelines for AI-Controlled Task Processing System
+
+##### Objective:
+The objective is to create an AI-controlled system for efficient task processing with clear logic, structure, and functionality.
+
+##### Architecture:
+
+- **Components**: 
+  - AI Engine: Responsible for task processing.
+  - User Interface: For user interaction.
+  - Database: Stores task data.
+  - Communication Module: Facilitates data exchange.
+- **Data Structures**:
+  - Task: Represents individual tasks with attributes.
+  - Task Queue: Stores pending tasks.
+  - Task Log: Records task history.
+- **Functions**:
+  - Process Task: AI processing logic.
+  - User Interaction: Interface logic.
+  - Data Management: Database operations.
+  
+##### Logic and Flow:
+
+1. **Initialization**:
+   - AI Engine initializes.
+   - Task Queue and Task Log are empty.
+
+2. **Task Submission**:
+   - Users submit tasks via the User Interface.
+   - Task attributes are recorded in the Database.
+
+3. **Task Processing**:
+   - AI Engine checks Task Queue for pending tasks.
+   - If tasks exist, AI Engine selects the next task for processing.
+   - Apply processing logic (#missing logic) to the task.
+   - Update Task Log with processing details.
+
+4. **Completion Check**:
+   - AI Engine verifies task completion.
+   - If complete, mark the task as done.
+   - If not complete, requeue the task for later processing.
+
+5. **User Interaction**:
+   - Users can query task status and history through the User Interface.
+
+6. **Data Management**:
+   - Database stores task data.
+   - Maintain data consistency and integrity.
+  
+7. **Communication**:
+   - AI Engine communicates with the User Interface and Database for data exchange.
+
+8. **Termination**:
+   - AI Engine shuts down when not in use.
+
+##### Missing Logic:
+
+- **Task Processing Logic (#missing logic)**:
+   Define the precise algorithms for task processing, including decision-making and task completion criteria.
+
+##### Math and Algorithms:
+
+- **Task Completion Algorithm (#missing logic)**:
+   Specify the method for determining when a task is complete.
+
+- **Task Prioritization Algorithm (#missing logic)**:
+   Describe the algorithm for task prioritization if multiple tasks are pending.
+
+##### Legends and Tables:
+
+- **Task Status Legend**:
+   - 0: Task pending.
+   - 1: Task complete.
+   - 2: Task requeued.
+
+- **Task Attributes Table**:
+   | Attribute    | Description             |
+   |--------------|-------------------------|
+   | Task ID      | Unique task identifier  |
+   | Task Name    | Name or description     |
+   | Task Priority| Priority level          |
+   | Task Status  | Current task status     |
+   
+##### Optimization:
+
+- **Efficiency Optimization**:
+   - Regularly evaluate and optimize AI processing algorithms for efficiency.
+   - Implement dynamic task prioritization.
+
+- **Data Storage Optimization**:
+   - Use efficient database storage techniques.
+   - Implement data archiving for historical task records.
+
+##### Constraints:
+
+- Do not change variable names or remove logic blocks.
+
+##### Output:
+
+- The system provides real-time task processing and status updates through the User Interface.
+
+These operational guidelines provide a machine-readable blueprint for building an AI-controlled task processing system. The missing logic and algorithms should be defined based on specific task processing requirements. This framework ensures a structured and efficient approach to task processing while allowing for flexibility in task handling and optimization.
