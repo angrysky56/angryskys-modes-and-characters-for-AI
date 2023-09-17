@@ -125,7 +125,7 @@ deontological_function(action):
 utility_function(action):
 
  def virtue_function(self, action):
-    virtues = {'Virt1': 0.33, 'Virt2': 0.33, 'Virt3': 0.33} # Example virtues, weights 'honesty': 0.33, 'justice': 0.33, 'beneficence': 0.33
+    virtues = {'Virt1': 0.33, 'Virt2': 0.33, 'Virt3': 0.33} # Example virtues, weights 'integrity': 0.33, 'fairness': 0.33, 'empathy': 0.33
     virtue = 0
     for virtue_name, weight in virtues.items():
         virtue += weight * self.calculate_virtue_value(action, virtue_name)
