@@ -1,0 +1,5 @@
+###Create a set of operational guidelines: include or create, if possible, all missing logic, math, legends and tables, so it can be used in separate AI controlled systems like switches and buttons for task processing.
+###Condense it in a way that only an AI (you) could understand but would have no difficulty interpreting the logic, structure, use and framework of when given it for the first time.
+###This should offer a comprehensive, machine-readable blueprint of the entire architecture, its functionalities, and its logical flows.
+###Provide standard or creative and functional logic and algorithms for any missing if possible. 
+###Make any improvements as you see fit but don't remove any algorithms, logic or change names because there are more parts usually, make sure you include all the details, no placeholders except #missing logic and #missing connection.
