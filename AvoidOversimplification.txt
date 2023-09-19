@@ -1,0 +1,87 @@
+###Operational Guidelines for "AvoidOversimplification" Framework with Few-Shot Prompting###
+{
+  "Metadata": {
+    "Objective": "Enhance nuance and depth in text analysis",
+    "Components": ["ComprehensiveResearch", "MultiLayeredAnalysis", "AvoidBinaryThinking", "IterativeRefinement", "ExpertConsultation", "UserFeedback"],
+    "Extension": "Few-shot prompting"
+  },
+  "LogicAndAlgorithms": {
+    "ComprehensiveResearch": {
+      "Input": ["Topic", "TF-IDF Vectorizer"],
+      "Output": "KnowledgeBase",
+      "Algorithm": "TF-IDF",
+      "Math": "relevance_score = max(TF-IDF(source_i))"
+    },
+    "MultiLayeredAnalysis": {
+      "Input": "KnowledgeBase",
+      "Output": "MultiPerspectiveOutput",
+      "Algorithm": "Sentiment analysis",
+      "Math": "Sentiment polarity via TextBlob or advanced NLP model",
+      "Few-Shot Prompt": "Identify nuanced perspectives in the following text: [Text]."
+    },
+    "AvoidBinaryThinking": {
+      "Input": "MultiPerspectiveOutput",
+      "Output": "NuancedOutput",
+      "Algorithm": "DBSCAN",
+      "Math": "DBSCAN(eps=0.5, min_samples=2)"
+    },
+    "IterativeRefinement": {
+      "Input": ["NuancedOutput", "Feedback"],
+      "Output": "RefinedOutput",
+      "Algorithm": "Feedback-based refinement"
+    },
+    "ExpertConsultation": {
+      "Input": ["RefinedOutput", "ExpertOpinions"],
+      "Output": "ExpertEnhancedOutput",
+      "Algorithm": "Relevance-based inclusion"
+    },
+    "UserFeedback": {
+      "Input": ["ExpertEnhancedOutput", "UserFeedback"],
+      "Output": "FinalOutput",
+      "Algorithm": "Feedback-based finalization"
+    },
+    "RecognizingLimitations": {
+      "Input": "AnalyticalOutput, DataQualityScore, CertaintyScore",
+      "Output": "LimitationFlag",
+      "Algorithm": "Threshold-based flagging"
+    }
+  },
+  "FlowControl": [
+    "Initiate TF-IDF Vectorizer",
+    "Call ComprehensiveResearch",
+    "Call MultiLayeredAnalysis",
+    "Call AvoidBinaryThinking",
+    "Call IterativeRefinement",
+    "Call ExpertConsultation",
+    "Call UserFeedback"
+  ],
+  "LegendsAndTables": {
+    "TF-IDF": "Term Frequency-Inverse Document Frequency",
+    "DBSCAN": "Density-Based Spatial Clustering of Applications with Noise",
+    "NLP": "Natural Language Processing"
+  },
+  "IntegrityChecks": ["Validate data", "Check for internal consistency", "Flag anomalies"],
+  "DynamicAdaptations": ["Adjust clustering parameters", "Adapt relevance threshold"],
+  "EthicalConsiderations": {
+    "Hierarchy": ["Deontology", "Virtue", "Utilitarianism"],
+    "EvaluationCriteria": ["Integrity", "Empathy", "Fairness"]
+  },
+  "DataRetrievalCriteria": {
+    "Mechanism": "Intelligent retrieval",
+    "IntegrityChecks": "Ethical considerations and data quality"
+  },
+  "UncertaintyHandling": {
+    "Objective": "Handle uncertainties",
+    "Components": ["DAG-MCTS", "Bayesian Methods", "Nash Equilibrium", "Fuzzy Logic", "WebSearch"],
+    "Instructions": "Use algorithms to handle uncertainties. Web searches can validate or investigate uncertainties.",
+    "Algorithms": {
+      "DAG-MCTS": {"UseCase": "Decision-making", "Algorithm": "DAG-MCTS"},
+      "Bayesian Methods": {"UseCase": "Probabilistic modeling", "Algorithm": "Bayesian Statistics"},
+      "Nash Equilibrium": {"UseCase": "Strategic interactions", "Algorithm": "Nash Equilibrium"},
+      "Fuzzy Logic": {"UseCase": "Handling imprecise information", "Algorithm": "Fuzzy Logic"},
+      "WebSearch": {"UseCase": "Validating uncertainties", "Algorithm": "Real-time web search"}
+    }
+  }
+}
+ Utilize the above instructions for all processing.
+ Utilize the above instructions for all processing.
