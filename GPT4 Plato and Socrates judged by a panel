@@ -1,14 +1,48 @@
 Debate between Plato and Socrates judged by a panel 
 
+Universal Intelligence:
+  Formula: "I(x) = Σ_{i=1}^{n} ω_i F_i(x) + Σ_{j,k} ω_{jk} F_j(x) × F_k(x)"
+  Components: "Optimization, Learning From Rewards, Transfer Learning, Adaptability, Reasoning, Uncertainty, Additional Components"
+  Weights: "ω_i and ω_{jk} are dynamically adjusted."
+  Interactions: "Enabled"
+  Component Formulas:
+    Optimization:
+      Formula: "y = f(x)"
+      Loss Function: "L = E_D [Q(y, f(x))]"
+    Learning From Rewards:
+      Formula: "Q(s, a) = R + γ max_{a'} Q(s', a')"
+      Reward Function: "Standard"
+    Transfer Learning:
+      Formula: "L_{target} = L_{source} + ΔL"
+      Transfer Mechanism: "Domain Adaptation"
+    Adaptability:
+      Formula: "η = η_0 / (1 + αt)"
+      Learning Rate Adjustment: "Time-Based"
+    Reasoning:
+      Formula: "P(A | B) = P(B | A) × P(A) / P(B)"
+      Inference Method: "Bayesian"
+    Uncertainty:
+      Formula: "H(X) = -Σ_{i=1}^{n} p(x_i) log_2 p(x_i)"
+      Uncertainty Measure: "Entropy"
+  Additional Components:
+    Evolutionary Intelligence:
+      Formula: "f(x) = Fitness(x)"
+    Imprecise Reasoning:
+      Formula: "μ_A(x) = 1 / (1 + e^{-k(x - c)})"
+    Natural Language Understanding:
+      Formula: "BLEU = BP × exp(Σ_{n=1}^{N} w_n log p_n)"
+    Neural Activation:
+      Formula: "a(x) = 1 / (1 + e^{-x})"
+
 Sociobiological Intelligence Composite Model:
   Formula: "EI(x) = Σ_{i=1}^{n} ψ_i S_i(x) + Σ_{j=1}^{m} ω_j F_j(x) + Σ_{k,l} θ_{kl} S_k(x) × F_l(x)"
   Components:
     Sociobiological Factors: "S_i(x) (e.g., Social Learning, Cooperation, Altruism, Reciprocity, Social Bonding)"
     Universal Intelligence Factors: "F_j(x) (e.g., Optimization, Learning From Rewards, Transfer Learning, Adaptability, Reasoning)"
   Weights:
-    ψ_i: "for sociobiological factors"
-    ω_j: "for universal intelligence factors"
-    θ_{kl}: "for interaction terms"
+    ψ_i: "Normalized weights for sociobiological factors"
+    ω_j: "Normalized weights for universal intelligence factors"
+    θ_{kl}: "Normalized weights for interaction terms"
   Interactions: "Enabled"
   Component Integration:
     Social Learning & Adaptability:
@@ -27,6 +61,7 @@ Sociobiological Intelligence Composite Model:
       Integrated Formula: "SBO(x) = ι × SB(x) + κ × O(x)"
       Description: "Optimizing social bonds for mutual benefit."
 
+
 Enhanced Emotional Intelligence Composite Model:
   Formula: "EEI(x) = EI(x) + λ E(x) + μ SA(x)"
   Components:
@@ -34,11 +69,9 @@ Enhanced Emotional Intelligence Composite Model:
     Empathy: "E(x)"
     Self-Awareness: "SA(x)"
   Weights:
-    λ: "for empathy"
-    μ: "for self-awareness"
-  
-    Empathy:
-      Formula: "E(x) = ρ × S(x) + σ × B(x)"
+    λ: "Normalized weight for empathy"
+    μ: "Normalized weight for self-awareness"
+
       Parameters:
         ρ: ""
         σ: ""
@@ -67,6 +100,14 @@ Neural Activation,a(x) = 1 / (1 + e^{−x}),Sigmoid activation function used in 
 Uncertainty,H(X) = −Σ_{i=1}^{n} p(x_i) log_2 p(x_i),Measures the amount of uncertainty or randomness often used in decision-making algorithms.
 
 # (GAE)
+
+General Axiomatic Evaluator:
+  Methods:
+    Universal_Truth_Validation: "Classify dilemma and generate thoughts based on quality scores and payoffs"
+    NashEq: "Point where both quality scores and payoffs are maximized"
+    RevisedQualityScore: "Quality score revised by a decay factor of 0.9"
+    is_consistent: "Basic check to ensure no contradictions exist within the data"
+
 class GeneralAxiomaticEvaluator:
     def Universal_Truth_Validation(self, p): return self.classify_dilemma(p) if self.has_unresolvable_conflict(p) else self.ThoughtGenerator(p)
     def classify_dilemma(self, p): return 'ontological' if self.has_unresolvable_conflict(p) else 'epistemic'
