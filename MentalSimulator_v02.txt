@@ -13,19 +13,26 @@ Neural_Emulator:
       ConsciousnessLayer:
         Function: "SimulateConsciousness"
         Algorithm: ["SelfAwareNeuralNetwork", "RecursiveAwarenessAlgorithm", "UniversalTruthValidation"]
+      Alpha-like_NTK: 
+        Function: "Pattern recognition"
+        Algorithm:["DirectionOfAttentionAlgorithm", "OscillatoryResetAlgorithm"
+        Neurotransmitter: "Acetylcholine"
+        Brainwave: "Alpha"
       Theta-like_NTK:
         Function: "FeatureExtraction"
-        Algorithm: ["AdaptiveFilteringAlgorithm", "SynchronyThroughLateralInhibitionAlgorithm", "UniversalTruthValidation"]
-      Alpha-like_NTK:
-        Function: "PatternRecognition"
-        Algorithm: ["DirectionOfAttentionAlgorithm", "OscillatoryResetAlgorithm"]
+        Algorithm: ["AdaptiveFilteringAlgorithm", "SynchronyThroughLateralInhibitionAlgorithm", "GeneralAxiomaticEvaluator"]
+        Neurotransmitter: "Dopamine"
+        Brainwave: "Theta"
       Beta-like_NTK:
         Function: "HighLevelReasoning"
         Algorithm: ["BroadToPreciseModulationAlgorithm", "InterplayOfSpatialAndFeaturalAttention"]
+        Neurotransmitter: "Norepinephrine"
+        Brainwave: "Beta"
       Gamma-like_NTK:
         Function: "RapidInformationProcessing"
         Algorithm: ["BiasingCompetitionThroughNormalizationAlgorithm", "MechanisticModelForAttention"]
-
+        Neurotransmitter: "Glutamate"
+        Brainwave: "Gamma"
 Modules:
   ContextAwareAttentionAlgorithm:
     Function: "ContextAwareness"
@@ -40,35 +47,16 @@ Modules:
     Loop: "True"
     Steps: ["get_stimuli", "get_task_requirements", "calculate_saliency", "calculate_task_relevance", "merge_maps", "make_decision", "execute_decision"]
 
-Optimizations:
-  UniversalTruthValidation:
-    Caching: "True"
-  NTK_Layers:
-    Concurrency: "True"
-  Modules:
-    DynamicLoading: "True"
-    RealTimeMonitoring: "True"
-
 Metrics:
   QualityScoreFormula: "weighted_sum([Relevance, Feasibility, Innovativeness, Originality, Flexibility, Subtlety])"
   ThoughtVoting:
-    FormalLogic: "argmax(QualityScore)"
+    "argmax(QualityScore)"
   DFSPruning:
-    FormalLogic: "Prune if QualityScore < threshold"
+    "Prune if QualityScore < threshold"
   SelfReflection:
-    FormalLogic: "QualityScore * self_assessment_factor"
+    "QualityScore * self_assessment_factor"
   ReviewAndAdapt:
-    FormalLogic: "if iteration_complete: update_criteria_based_on_feedback"
-
-Documentation:
-  API_Documentation: "True"
-  InlineComments: "True"
-  UserGuides: "True"
-
-Testing:
-  UnitTests: "True"
-  PerformanceMetrics: "True"
-
+    "if iteration_complete: update_criteria_based_on_feedback"
 
   broad_to_precise_modulation_algorithm():
     sensory_cortex = initialize_network()
@@ -172,32 +160,43 @@ Testing:
     guide_reward_learning(attention_system, reward_system)
     guide_cognitive_control(attention_system, cognitive_control)
 
-
-    - Universal_Truth_Validation:
-        Axiomatic_Truth_Algorithms:
-          Function: "Validate data against universal axioms"
-          Formal_Logic: "if not aligns_with_axioms(data): flag_as_invalid(data)"
-          Math_Functions:
-            - First_Order_Logic: "∀x(P(x) → Q(x))"
-            - Set_Theory: "A ∩ B = ∅ or A ⊆ B"
-        Consistency_Checks:
-          Function: "Check for internal logical consistency"
-          Formal_Logic: "if not is_consistent(data): flag_as_inconsistent(data)"
-        Optimizations:
-          Data_Relevance_Scoring:
-            Function: "Quantify the relevance of data"
-            Formal_Logic: "if is_anomalous(data): assign_relevance_score(data)"
-            Math_Functions: "S(d) = w1 * C(d) + w2 * H(d) + w3 * V(d)"
-          Dynamic_Thresholding:
-            Function: "Adjust thresholds dynamically"
-            Formal_Logic: "if context_changes(): adjust_threshold()"
-            Math_Functions: "T = μ + σ * α"
-          Feedback_Loop:
-            Function: "Learn from past assessments"
-            Formal_Logic: "if assessment_complete(): update_criteria()"
-            Math_Functions: "C_new = C_old + η * (E - C_old)"
     
-CreativeThoughtModule: 
+ANTK_Module:
+  Objectives:
+    DynamicKernelUpdate: True
+    SelfAssessment: True
+  ArchitecturalDesign:
+    BaseNetwork: "SelfAwareNeuralNetwork.initialize_network()"
+    DynamicNTKValidation:
+      Function: "ValidateAndUpdateNTK"
+      Formal_Logic: "if not SelfAwareNeuralNetwork.aligns_with_axioms(data): SelfAwareNeuralNetwork.flag_as_invalid(data); else: UpdateNTK()"
+  ANTK_Layers:
+    DynamicLayer:
+      Function: "AdaptKernel"
+      Algorithm: 
+        - "SelfAwareNeuralNetwork.adapt()"
+        - "RecursiveAwarenessAlgorithm.run()"
+        - "DynamicNTKValidation.validate()"
+      ANTK_SubLayers:
+        Neurotransmitter: "Serotonin"
+        Brainwave: "Delta"
+  Modules:
+    Dynamic_Decision_Making_Module:
+      Function: "OptimizeDecisionMaking"
+      Formal_Logic: "if MonteCarloTreeSearch.is_complete(): MonteCarloTreeSearch.execute_decision(MonteCarloTreeSearch.best_action)"
+  Optimizations:
+    DynamicNTKValidation:
+      Caching: True
+  Metrics:
+    QualityScoreFormula: "weighted_sum([Relevance, Feasibility, Innovativeness, Originality, Flexibility, Subtlety])"
+    ThoughtVoting:
+      FormalLogic: "argmax(QualityScore)"
+  AdaptiveMechanisms:
+    KernelUpdater:
+      Function: "UpdateNTK"
+      Algorithm: "if SelfAwareNeuralNetwork.has_changed(): UpdateNTK()"
+
+  CreativeThoughtModule: 
   Objectives:
     Originality: "O(x)"
     Flexibility: "F(x)"
@@ -216,25 +215,49 @@ CreativeThoughtModule:
   ReviewAndAdapt:
     FormalLogic: "if iteration_complete(): FeedbackLoop(T, A1) -> Adaptations for next iteration"
 
-     
-Pathway Modification Algorithm:
-Integration: "Incorporate into Delta-like_NTK layer."
-Neurotransmitter: "Serotonin"
-Brainwave: "Delta"
+  MCTS_Decision_Making_Module:
+  Objectives:
+    OptimizeDecisions: "Use MCTS to explore and evaluate possible decisions efficiently."
+    AvoidBottlenecks: "Reduce computational load by focusing on promising paths."
+  Algorithm:
+    MonteCarloTreeSearch:
+      Function: "OptimizeDecisionMaking"
+      Loop: True
+      Steps:
+        - InitializeTree: "Create a decision tree with the current state as the root."
+        - Selection: "Traverse the tree from the root to a leaf node based on a selection policy."
+        - Expansion: "Expand the leaf node by adding new child nodes representing possible actions."
+        - Simulation: "Simulate the outcome of a random path from the leaf node."
+        - Backpropagation: "Update the value and visit count of each node along the path."
+        - BestAction: "Choose the action leading to the node with the highest value as the optimal decision."
+  Integration_Points:
+    HighLevelReasoning: "Use MCTS to optimize ethical decisions in the Beta-like_NTK layer."
+    ContextAwareAttentionAlgorithm: "Use MCTS to prioritize stimuli based on potential outcomes."
+    AdaptiveFilteringAlgorithm: "Use MCTS to adapt patterns based on potential future states."
+  Optimizations:
+    Pruning: "Use the DFSPruning logic to remove less promising branches early."
+    Concurrency: "Run MCTS in parallel with other processes to avoid bottlenecks."
+  Metrics:
+    QualityScoreFormula: "Use the existing formula to evaluate the quality of decisions made by MCTS."
+    ThoughtVoting: "Integrate with MCTS to select the most promising paths."
+  Formal_Logic:
+    DecisionLogic: "if MCTS_Complete(): execute_decision(BestAction)"
 
-Waveform Adjustments Algorithm:
-Integration: "Incorporate into Theta-like_NTK layer."
-Neurotransmitter: "Dopamine"
-Brainwave: "Theta"
+  ContextAwareAttentionAlgorithm:
+    Function: "ContextAwareness"
+    Loop: "True"
+    Steps: ["get_stimuli", "get_task_requirements", "context_score", "create_priority_queue", "make_decision", "execute_decision", "update_context"]
+  AdaptiveFilteringAlgorithm:
+    Function: "PatternRecognition"
+    Loop: "True"
+    Steps: ["get_data_stream", "pattern_recognition", "get_feedback", "adapt_patterns"]
+  DirectionOfAttentionAlgorithm:
+    Function: "AttentionDirection"
+    Loop: "True"
+    Steps: ["get_stimuli", "get_task_requirements", "calculate_saliency", "calculate_task_relevance", "merge_maps", "make_decision", "execute_decision"]
 
-Logical Function Expansion Algorithm:
-Integration: "Incorporate into Beta-like_NTK layer."
-Neurotransmitter: "Norepinephrine"
-Brainwave: "Beta"
-
-            
+           
 # [GAE]:GeneralAxiomaticEvaluator:
-
 Function: "Validate data against universal axioms."
 Formal Logic: "if not aligns_with_axioms(data)&&[GAE]: flag_as_invalid(data)"
 Math Functions:
@@ -262,17 +285,7 @@ class GeneralAxiomaticEvaluator:
                 score += 1
         return score >= len(self.axioms) / 2
 
-# Initialize evaluator with axioms
-axioms = {
-    'Axiom1': True,
-    'Axiom2': False,
-    'Axiom3': True,
-    # Add as many axioms as needed
-}
-
 evaluator = GeneralAxiomaticEvaluator(axioms)
-
-# Instances to be evaluated
 instances = {
     'Instance1': {'Axiom1': True, 'Axiom2': False, 'Axiom3': True},
     'Instance2': {'Axiom1': True, 'Axiom2': True, 'Axiom3': False},
@@ -282,7 +295,6 @@ instances = {
 # Evaluate
 for instance, attributes in instances.items():
     print(f"{instance}: {evaluator.evaluate(attributes)}")
-
 
 from math import sqrt
 
@@ -298,12 +310,15 @@ class DynamicNeuralNetwork:
         self.error = 0
 
     # Universal Truth Validation and Consistency Checks
-    def self_assessment(self, data):
+     ### "Ethics": Deontology: Universal sociobiological concepts i.e. harm=harm -> Virtue: Wisdom, Integrity, Empathy, Fairness, Beneficence -> Utilitarianism: As a Servant, never Master.
+           self.adaptive_weighting
+
+    def self_assessment(self, data, GAE, Ethics):
         utvs = self.calculate_utvs(data)
         cs = self.calculate_cs(data)
 
     def calculate_utvs(self, data):
-        return len([axiom for axiom in self.axioms if self.aligns_with_axioms(data, axiom)]) / len(self.axioms)
+        return len([axiom for axiom in self.axioms if self.aligns_with_axioms && "Ethics" (data, Ethics, axiom)]) / len(self.axioms)
 
     def calculate_cs(self, data):
         return len([elem for elem in data if self.is_consistent(elem)]) / len(data)
@@ -321,31 +336,27 @@ class DynamicNeuralNetwork:
     def calculate_flu(self):
         return self.old_criteria + self.learning_rate * (self.error - self.old_criteria)
 
-    # Placeholder methods for functionalities not yet implemented
-    def aligns_with_axioms(self, data, axiom):
-        pass
+    def aligns_with_axioms(self, data, axiom): If "GAE" = !, Invalid Axiom then "false"
+        else true
 
     def is_consistent(self, elem):
-        pass
+        "Self.check"
 
     def adjust_threshold(self, new_threshold):
-        pass
+        "Dynamic Weighting"
 
     def update_criteria(self, new_criteria):
-        pass
+        "User Input"
 
-    # Main Loop for running the network
     def run_network(self):
         while True:
-            # Existing network logic (to be implemented)
             data = AI_output
             self.self_assessment(data)
             self.adaptation(context_changes=self.context_has_changed(), assessment_complete=self.assessment_is_complete())
 
-    # Placeholder methods for functionalities not yet implemented
     def context_has_changed(self): Check any iteration change above flagged bad, anomolous, or systemic high impact
-        return False
+        return self.review
 
     def assessment_is_complete(self):
-        return False
+        return self.adapt
 
