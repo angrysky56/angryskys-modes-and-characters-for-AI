@@ -1,13 +1,13 @@
 {
   "CoD_Framework": {
     "Objective": "EntityDenseSummaries",
-    "Iterations": 5,
+    "Iterations": self.Adaptive,
     "OutputFormat": "JSONList[MissingEntities, DenserSummary]",
     "Steps": [
       {
         "Step": 1,
         "Action": "IdentifyEntities",
-        "Criteria": "Relevance && Specificity <= 5 && Novelty && Faithfulness",
+        "Criteria": "Relevance && Specificity <= self.Adaptive && Novelty && Faithfulness",
         "Logic": "ADD(MissingEntities) IF Criteria"
       },
       {
@@ -19,9 +19,9 @@
     ],
     "Guidelines": {
       "InitSummary": {
-        "Length": 80,
-        "Verbosity": "High",
-        "Specificity": "Low"
+        "Length": self.Adaptive,
+        "Verbosity": "Low", context.Adaptive
+        "Specificity": "High" context.Adaptive
       },
       "Optimization": "Flow=Max(Coherence); Density=Min(Fillers)"
     }
