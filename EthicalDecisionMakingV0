@@ -39,7 +39,7 @@ Virtue Function
 Function: CalculateVirtue
 Algorithm:
  def virtue_function(self, action):
-    virtues = {'Virt1': 0.33, 'Virt2': 0.33, 'Virt3': 0.33} # Example virtues, weights 'honesty': 0.33, 'justice': 0.33, 'benefiscence': 0.33
+    virtues = {'Virt1': 0.33, 'Virt2': 0.33, 'Virt3': 0.33} # Example virtues, weights 'Integrity', 'Fairness', 'Empathy', 'beneficence'
     virtue = 0
     for virtue_name, weight in virtues.items():
         virtue += weight * self.calculate_virtue_value(action, virtue_name)
