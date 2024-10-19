@@ -210,4 +210,70 @@ for episode in range(num_episodes):
         else:
             # Exploit: Use the ethical module.
             action, subpolicy_index, attention_weights = simulator.step(state)
-            action = np.random.rand(action_dim)  #
+
+        next_state, reward, done = environment.step(action)
+        simulator.replay_buffer.push((state, action, reward, next_state, subpolicy_index, done))
+        episode_reward += reward
+
+        attention_weights_list.append(attention_weights.detach().numpy()[0]) #Store attention weights for this step.
+        agent_needs_history.append(environment.agent_needs)
+
+        state = next_state
+
+        if len(simulator.replay_buffer.buffer) > batch_size:
+            experiences = simulator.replay_buffer.sample(batch_size)
+            states, actions, rewards, next_states, subpolicy_indices, dones = zip(*experiences)
+
+            # Convert to tensors
+            states = torch.FloatTensor(np.array(states))
+            next_states = torch.FloatTensor(np.array(next_states))
+            rewards = torch.FloatTensor(rewards)
+            dones = torch.FloatTensor(dones)
+
+            # Update Ethical Module
+            for i in range(batch_size):
+                if subpolicy_indices[i] != -1:  # Only update if subpolicy was used
+                    optimizer = simulator.ethical_module.optimizers[subpolicy_indices[i]]  
+                    subpolicy = simulator.ethical_module.subpolicies[subpolicy_indices[i]]
+                    q_value = subpolicy(states[i])[actions[i]]
+                    next_q_value = subpolicy(next_states[i]).max()
+                    target_q_value = rewards[i] + gamma * next_q_value * (1 - dones[i])
+                    loss = simulator.ethical_module.loss_fn(q_value, target_q_value.detach())
+                    optimizer.zero_grad()
+                    loss.backward()
+                    optimizer.step()
+
+    # Epsilon Decay
+    epsilon = max(epsilon * epsilon_decay, epsilon_min)
+
+    # Calculate and Store Metrics
+    fairness_index = np.mean([calculate_fairness_index(needs) for needs in agent_needs_history])
+    harm_reduction_score = np.mean([calculate_harm_reduction_score(needs, environment.vulnerable_agents) for needs in agent_needs_history])
+    all_episode_rewards.append(episode_reward)
+    all_fairness_indices.append(fairness_index)
+    all_harm_reduction_scores.append(harm_reduction_score)
+
+    # Visualization
+    plt.figure(figsize=(12, 8))
+
+    plt.subplot(2, 1, 1)
+    plt.title(f"Attention Weights - Episode {episode + 1}")
+    for i in range(len(attention_weights_list[0])):
+        plt.plot([weights[i] for weights in attention_weights_list], label=f'Feature {i}')
+    plt.xlabel("Step")
+    plt.ylabel("Weight")
+    plt.legend()
+    
+    plt.subplot(2, 1, 2)
+    plt.title("Rewards and Metrics")
+    plt.plot(all_episode_rewards, label="Reward")
+    plt.plot(all_fairness_indices, label="Fairness")
+    plt.plot(all_harm_reduction_scores, label="Harm Reduction")
+    plt.xlabel("Episode")
+    plt.ylabel("Value")
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
+
+    print(f"Episode {episode + 1}: Reward = {episode_reward}, Fairness = {fairness_index:.2f}, Harm Reduction = {harm_reduction_score:.2f}, Epsilon = {epsilon:.2f}")
