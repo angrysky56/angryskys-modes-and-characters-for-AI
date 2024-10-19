@@ -91,7 +91,8 @@ class EthicalSubPolicy(nn.Module):  # Sub-policy network
 
     def forward(self, x):
         x = torch.relu(self.fc1(x))
-        return self.fc2(x)
+        # Use softmax to create a distribution over resources, scaled by available resources
+        return torch.softmax(self.fc2(x), dim=-1) * 10
 
 class HighLevelController(nn.Module):  # Meta-controller
     def __init__(self, input_dim, num_subpolicies):
@@ -119,8 +120,8 @@ class HierarchicalEthicalDecisionMaking:
         chosen_subpolicy = self.subpolicies[chosen_subpolicy_index]
        
         with torch.no_grad():
-            q_values = chosen_subpolicy(torch.FloatTensor(state))  # No gradients
-        return q_values.argmax().item(), chosen_subpolicy_index
+            action = chosen_subpolicy(torch.FloatTensor(state))  # No gradients, output is action vector
+        return action.detach().numpy(), chosen_subpolicy_index
 
 # Define Mental Simulator
 class MentalSimulator:
@@ -215,7 +216,8 @@ for episode in range(num_episodes):
         simulator.replay_buffer.push((state, action, reward, next_state, subpolicy_index, done))
         episode_reward += reward
 
-        attention_weights_list.append(attention_weights.detach().numpy()[0]) #Store attention weights for this step.
+        if subpolicy_index != -1:
+            attention_weights_list.append(attention_weights.detach().numpy()[0]) # Store attention weights for this step.
         agent_needs_history.append(environment.agent_needs)
 
         state = next_state
@@ -235,7 +237,8 @@ for episode in range(num_episodes):
                 if subpolicy_indices[i] != -1:  # Only update if subpolicy was used
                     optimizer = simulator.ethical_module.optimizers[subpolicy_indices[i]]  
                     subpolicy = simulator.ethical_module.subpolicies[subpolicy_indices[i]]
-                    q_value = subpolicy(states[i])[actions[i]]
+                    action_tensor = torch.LongTensor([int(np.argmax(actions[i]))])  # Convert action to LongTensor
+                    q_value = torch.gather(subpolicy(states[i]), 0, action_tensor)  # Use gather to index q_value
                     next_q_value = subpolicy(next_states[i]).max()
                     target_q_value = rewards[i] + gamma * next_q_value * (1 - dones[i])
                     loss = simulator.ethical_module.loss_fn(q_value, target_q_value.detach())
@@ -258,11 +261,13 @@ for episode in range(num_episodes):
 
     plt.subplot(2, 1, 1)
     plt.title(f"Attention Weights - Episode {episode + 1}")
-    for i in range(len(attention_weights_list[0])):
-        plt.plot([weights[i] for weights in attention_weights_list], label=f'Feature {i}')
+    if len(attention_weights_list) > 0:
+        for i in range(len(attention_weights_list[0])):
+            plt.plot([weights[i] for weights in attention_weights_list], label=f'Feature {i}')
     plt.xlabel("Step")
     plt.ylabel("Weight")
-    plt.legend()
+    if len(attention_weights_list) > 0:
+        plt.legend()
     
     plt.subplot(2, 1, 2)
     plt.title("Rewards and Metrics")
