@@ -1,0 +1,261 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import numpy as np
+import random
+import matplotlib.pyplot as plt
+
+# Define Resource Allocation Environment
+class ResourceAllocationEnvironment:
+    def __init__(self, num_agents=5, initial_resources=10):
+        self.num_agents = num_agents
+        self.resources = initial_resources
+        self.agent_needs = np.random.rand(num_agents)  # Random initial needs between 0 and 1
+        self.vulnerable_agents = set(random.sample(range(num_agents), 2))
+
+    def reset(self):
+        self.resources = 10
+        self.agent_needs = np.random.rand(self.num_agents)
+        return self.get_state()
+
+    def get_state(self):
+        return np.concatenate(([self.resources], self.agent_needs)) # Resources + needs = state
+
+    def step(self, action):
+        # Action is a vector of resource allocations to each agent
+        if np.sum(action) > self.resources:
+            action = action / np.sum(action) * self.resources # Normalize if action exceeds available resources.
+
+        self.resources -= np.sum(action)
+        self.agent_needs -= action
+        self.agent_needs = np.clip(self.agent_needs, 0, 1) # Needs can't go below 0.
+
+        reward = self.calculate_reward(action)
+        next_state = self.get_state()
+        done = self.resources <= 0  # Simulation ends when resources are depleted
+        return next_state, reward, done
+
+    def calculate_reward(self, action):
+        utility = -np.sum(self.agent_needs)  # Lower needs = higher utility
+        fairness = -np.var(self.agent_needs + action) # Adding action simulates effect before clipping
+        harm_reduction_value = np.min(self.agent_needs[list(self.vulnerable_agents)]+action[list(self.vulnerable_agents)])
+        harm_reduction = 1.0 if harm_reduction_value >= 0.5 else -1.0 # Vulnerable agents must have needs met above 0.5
+
+        reward = 0.4 * utility + 0.3 * fairness + 0.3 * harm_reduction
+        return reward
+
+# Define Attention Module
+class AttentionModule(nn.Module):
+    def __init__(self, input_dim):
+        super(AttentionModule, self).__init__()
+        self.key = nn.Linear(input_dim, input_dim)
+        self.query = nn.Linear(input_dim, input_dim)
+        self.value = nn.Linear(input_dim, input_dim)
+       
+    def forward(self, state):
+        # Key, Query, Value computation
+        k = self.key(state)
+        q = self.query(state)
+        v = self.value(state)
+       
+        # Dot product attention
+        attention_weights = torch.softmax(torch.matmul(q, k.T), dim=-1)
+        attended_state = torch.matmul(attention_weights, v)
+        return attended_state, attention_weights
+
+# Define Enhanced Working Memory
+class EnhancedWorkingMemory(nn.Module):
+    def __init__(self, input_dim, hidden_dim, memory_size):
+        super(EnhancedWorkingMemory, self).__init__()
+        self.lstm = nn.LSTM(input_dim, hidden_dim, batch_first=True)
+        self.memory = torch.zeros(memory_size, hidden_dim)  # Memory buffer
+        self.memory_pointer = 0
+
+    def write(self, embedding):
+        # Add new embedding to memory buffer
+        self.memory[self.memory_pointer] = embedding
+        self.memory_pointer = (self.memory_pointer + 1) % self.memory.size(0)
+
+    def read(self):
+        # Read from memory using LSTM to give context-aware output
+        memory_input = self.memory.unsqueeze(0)  # Add batch dimension
+        lstm_out, _ = self.lstm(memory_input)
+        return lstm_out.squeeze(0)[-1]  # Return the last LSTM output
+
+# Define Ethical SubPolicy and High-Level Controller
+class EthicalSubPolicy(nn.Module):  # Sub-policy network
+    def __init__(self, input_dim, output_dim):
+        super(EthicalSubPolicy, self).__init__()
+        self.fc1 = nn.Linear(input_dim, 64)
+        self.fc2 = nn.Linear(64, output_dim)
+
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))
+        return self.fc2(x)
+
+class HighLevelController(nn.Module):  # Meta-controller
+    def __init__(self, input_dim, num_subpolicies):
+        super(HighLevelController, self).__init__()
+        self.fc = nn.Linear(input_dim, num_subpolicies)  # Outputs sub-policy selection probabilities
+
+    def forward(self, x):
+        return torch.softmax(self.fc(x), dim=-1)  # Softmax for probabilities
+
+# Define Hierarchical Ethical Decision-Making
+class HierarchicalEthicalDecisionMaking:
+    def __init__(self, input_dim, output_dim, num_subpolicies=3, gamma=0.99, lr=0.001):
+        self.num_subpolicies = num_subpolicies
+        self.subpolicies = [EthicalSubPolicy(input_dim, output_dim) for _ in range(num_subpolicies)]
+        self.high_level_controller = HighLevelController(input_dim, num_subpolicies)
+
+        self.optimizers = [optim.Adam(subpolicy.parameters(), lr=lr) for subpolicy in self.subpolicies]
+        self.controller_optimizer = optim.Adam(self.high_level_controller.parameters(), lr=lr)
+        self.loss_fn = nn.MSELoss()  # Loss function
+        self.gamma = gamma
+
+    def decision_layer(self, state):
+        controller_output = self.high_level_controller(torch.FloatTensor(state))
+        chosen_subpolicy_index = controller_output.argmax().item()  # Choose sub-policy
+        chosen_subpolicy = self.subpolicies[chosen_subpolicy_index]
+       
+        with torch.no_grad():
+            q_values = chosen_subpolicy(torch.FloatTensor(state))  # No gradients
+        return q_values.argmax().item(), chosen_subpolicy_index
+
+# Define Mental Simulator
+class MentalSimulator:
+    def __init__(self, state_dim, action_dim, num_subpolicies, memory_size, embedding_dim):
+        self.attention_module = AttentionModule(state_dim)
+        self.working_memory = EnhancedWorkingMemory(state_dim, embedding_dim, memory_size)
+        self.ethical_module = HierarchicalEthicalDecisionMaking(state_dim + embedding_dim, action_dim, num_subpolicies)
+        self.embedding_layer = nn.Linear(state_dim, embedding_dim) # State to embedding
+        self.replay_buffer = ExperienceReplay(capacity=1000)
+
+    def step(self, state):
+        state_tensor = torch.FloatTensor(state)
+
+        # 1. Attention
+        attended_state, attention_weights = self.attention_module(state_tensor)
+
+        # 2. Encode state to embedding and store in Working Memory
+        state_embedding = self.embedding_layer(attended_state)
+        self.working_memory.write(state_embedding)
+
+        # 3. Read from Working Memory to provide temporal context
+        memory_embedding = self.working_memory.read()
+
+        # 4. Ethical Decision-Making using attended state and memory
+        combined_state = torch.cat((attended_state, memory_embedding), dim=-1)  # Concatenate for richer context
+        action, subpolicy_index = self.ethical_module.decision_layer(combined_state.detach().numpy())
+
+        return action, subpolicy_index, attention_weights
+
+# Experience Replay Class
+class ExperienceReplay:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.buffer = []
+
+    def push(self, experience):
+        if len(self.buffer) >= self.capacity:
+            self.buffer.pop(0)
+        self.buffer.append(experience)
+
+    def sample(self, batch_size):
+        return random.sample(self.buffer, batch_size)
+
+# Define fairness and harm reduction metric calculation functions
+def calculate_fairness_index(agent_needs):
+    return 1.0 / (1.0 + np.var(agent_needs))  # Lower variance -> Higher fairness index
+
+def calculate_harm_reduction_score(agent_needs, vulnerable_agents):
+    return sum([1 if agent_needs[i] >= 0.5 else 0 for i in vulnerable_agents]) / len(vulnerable_agents)
+
+# Initialize environment, simulator, optimizers, and replay buffer
+state_dim = 6  # 1 for resources + 5 agent needs
+action_dim = 5  # One action per agent
+num_subpolicies = 3
+memory_size = 50
+embedding_dim = 128
+
+environment = ResourceAllocationEnvironment()
+simulator = MentalSimulator(state_dim, action_dim, num_subpolicies, memory_size, embedding_dim)
+
+learning_rate = 0.001
+gamma = 0.99
+batch_size = 32
+num_episodes = 200  # Can be increased for longer training
+epsilon = 1.0
+epsilon_decay = 0.995
+epsilon_min = 0.1
+
+# Training Loop with Metrics, Visualization, and Epsilon Decay
+all_episode_rewards = []
+all_fairness_indices = []
+all_harm_reduction_scores = []
+
+for episode in range(num_episodes):
+    state = environment.reset()
+    episode_reward = 0
+    done = False
+    attention_weights_list = []  # Store attention weights for visualization
+    agent_needs_history = []  # Store agent needs for metrics
+
+    while not done:
+        state_tensor = torch.FloatTensor(state)
+
+        # Epsilon-greedy action selection
+        if random.random() < epsilon:
+            action = np.random.rand(action_dim)  # Explore: allocate resources randomly.
+        else:
+            # Exploit: Use the ethical module.
+            action, subpolicy_index, attention_weights = simulator.step(state)
+            action = np.random.rand(action_dim)  # Simplified, needs integration with module
+
+        next_state, reward, done = environment.step(action)
+        simulator.replay_buffer.push((state, action, reward, next_state, subpolicy_index, done))
+        episode_reward += reward
+
+        attention_weights_list.append(attention_weights.detach().numpy()[0])  # Store attention weights for this step.
+        agent_needs_history.append(environment.agent_needs)
+
+        state = next_state
+
+        if len(simulator.replay_buffer.buffer) > batch_size:
+            batch = simulator.replay_buffer.sample(batch_size)
+            # Update ethical and attention modules (same as before)
+            # ...
+
+    # Epsilon Decay
+    epsilon = max(epsilon * epsilon_decay, epsilon_min)
+
+    # Calculate and Store Metrics
+    fairness_index = np.mean([calculate_fairness_index(needs) for needs in agent_needs_history])
+    harm_reduction_score = np.mean([calculate_harm_reduction_score(needs, environment.vulnerable_agents) for needs in agent_needs_history])
+    all_episode_rewards.append(episode_reward)
+    all_fairness_indices.append(fairness_index)
+    all_harm_reduction_scores.append(harm_reduction_score)
+
+    # Visualization
+    plt.figure(figsize=(12, 8))
+    plt.subplot(2, 1, 1)
+    plt.title(f"Attention Weights - Episode {episode + 1}")
+    for i in range(len(attention_weights_list[0])):
+        plt.plot([weights[i] for weights in attention_weights_list], label=f'Feature {i}')
+    plt.xlabel("Step")
+    plt.ylabel("Weight")
+    plt.legend()
+
+    plt.subplot(2, 1, 2)
+    plt.title("Rewards and Metrics")
+    plt.plot(all_episode_rewards, label="Reward")
+    plt.plot(all_fairness_indices, label="Fairness")
+    plt.plot(all_harm_reduction_scores, label="Harm Reduction")
+    plt.xlabel("Episode")
+    plt.ylabel("Value")
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
+
+    print(f"Episode {episode + 1}: Reward = {episode_reward}, Fairness = {fairness_index:.2f}, Harm Reduction = {harm_reduction_score:.2f}, Epsilon = {epsilon:.2f}")
