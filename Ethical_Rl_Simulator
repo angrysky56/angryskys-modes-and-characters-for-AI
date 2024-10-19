@@ -177,7 +177,6 @@ action_dim = 5  # One action per agent
 num_subpolicies = 3
 memory_size = 50
 embedding_dim = 128
-
 environment = ResourceAllocationEnvironment()
 simulator = MentalSimulator(state_dim, action_dim, num_subpolicies, memory_size, embedding_dim)
 
@@ -207,55 +206,8 @@ for episode in range(num_episodes):
         # Epsilon-greedy action selection
         if random.random() < epsilon:
             action = np.random.rand(action_dim)  # Explore: allocate resources randomly.
+            subpolicy_index = -1  # No subpolicy chosen in exploration
         else:
             # Exploit: Use the ethical module.
             action, subpolicy_index, attention_weights = simulator.step(state)
-            action = np.random.rand(action_dim)  # Simplified, needs integration with module
-
-        next_state, reward, done = environment.step(action)
-        simulator.replay_buffer.push((state, action, reward, next_state, subpolicy_index, done))
-        episode_reward += reward
-
-        attention_weights_list.append(attention_weights.detach().numpy()[0])  # Store attention weights for this step.
-        agent_needs_history.append(environment.agent_needs)
-
-        state = next_state
-
-        if len(simulator.replay_buffer.buffer) > batch_size:
-            batch = simulator.replay_buffer.sample(batch_size)
-            # Update ethical and attention modules (same as before)
-            # ...
-
-    # Epsilon Decay
-    epsilon = max(epsilon * epsilon_decay, epsilon_min)
-
-    # Calculate and Store Metrics
-    fairness_index = np.mean([calculate_fairness_index(needs) for needs in agent_needs_history])
-    harm_reduction_score = np.mean([calculate_harm_reduction_score(needs, environment.vulnerable_agents) for needs in agent_needs_history])
-    all_episode_rewards.append(episode_reward)
-    all_fairness_indices.append(fairness_index)
-    all_harm_reduction_scores.append(harm_reduction_score)
-
-    # Visualization
-    plt.figure(figsize=(12, 8))
-    plt.subplot(2, 1, 1)
-    plt.title(f"Attention Weights - Episode {episode + 1}")
-    for i in range(len(attention_weights_list[0])):
-        plt.plot([weights[i] for weights in attention_weights_list], label=f'Feature {i}')
-    plt.xlabel("Step")
-    plt.ylabel("Weight")
-    plt.legend()
-
-    plt.subplot(2, 1, 2)
-    plt.title("Rewards and Metrics")
-    plt.plot(all_episode_rewards, label="Reward")
-    plt.plot(all_fairness_indices, label="Fairness")
-    plt.plot(all_harm_reduction_scores, label="Harm Reduction")
-    plt.xlabel("Episode")
-    plt.ylabel("Value")
-    plt.legend()
-
-    plt.tight_layout()
-    plt.show()
-
-    print(f"Episode {episode + 1}: Reward = {episode_reward}, Fairness = {fairness_index:.2f}, Harm Reduction = {harm_reduction_score:.2f}, Epsilon = {epsilon:.2f}")
+            action = np.random.rand(action_dim)  #
